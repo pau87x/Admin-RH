@@ -6,6 +6,7 @@ use AdminRH\Repositories\CityRepo;
 use AdminRH\Repositories\StateRepo;
 use AdminRH\Managers\AccountManager;
 use AdminRH\Managers\ProfileManager;
+use AdminRH\Managers\EmployeeManager;
 
 class EmployeesController extends BaseController {
 
@@ -40,7 +41,7 @@ class EmployeesController extends BaseController {
     public function register()
     {
         $user = $this->employeeRepo->newEmployee();
-        $manager = new RegisterManager($user, Input::all());
+        $manager = new EmployeeManager($user, Input::all());
         $manager->save();
 
         return Redirect::route('home');

@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <h1>Nuevo Empleado</h1>
 
-            {{ Form::open(['route' => 'register', 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
+            {{ Form::open(['route' => 'save_new_employee', 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('code') }}
 
@@ -22,6 +22,8 @@
             {{ Field::text('third_name') }}
 
             {{ Field::text('last_name') }}
+
+            {{ Field::text('maiden_name') }}
 
             {{ Field::text('birthdate', null, ['id' => 'birthdate', 'class'=>'datepicker']) }}
 

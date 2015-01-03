@@ -3,6 +3,7 @@
 namespace AdminRH\Repositories;
 
 use AdminRH\Entities\Employee;
+use AdminRH\Entities\User;
 
 class EmployeeRepo extends BaseRepo {
 

@@ -70,14 +70,14 @@
                     {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'E-mail']) }}
                 </div>
                 <div class="form-group">
-                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
+                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña']) }}
                 </div>
                 <div class="checkbox">
-                    <label class="remember-me">
+                    <label style="color:white">
                         {{ Form::checkbox('remember') }} Recordarme
                     </label>
                 </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
+                <button type="submit" class="btn btn-success">Iniciar sesión</button>
             {{ Form::close() }}
         @endif
         </div><!--/.navbar-collapse -->
@@ -90,9 +90,9 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
             <li><a href="{{ route('employees') }}">Empleados</a></li>
-            <li><a href="@{{ route('new_employee) }}">Nuevo</a></li>
-            <li><a href="@{{ route('update_employee) }}">Editar</a></li>
-            <li><a href="@{{ route('update_employee) }}">Cambiar Estatus</a></li>
+            <li><a href="{{ route('new_employee') }}">Nuevo</a></li>
+            <li><a href="{{ route('update_employee') }}">Editar</a></li>
+            <li><a href="@{{ route('update_employee') }}">Cambiar Estatus</a></li>
           </ul>
           <!--
           <ul class="nav nav-sidebar">

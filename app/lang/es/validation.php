@@ -77,7 +77,15 @@ return array(
 	|
 	*/
 
-	'custom' => array(),
+	//'custom' => array(),
+	'custom' => array(
+	    'rfc' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    ),
+	    'curp' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    )
+	),
 
 	/*
 	|--------------------------------------------------------------------------
