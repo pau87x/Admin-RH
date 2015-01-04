@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration {
 			$table->string('code')->unique();
 			$table->string('first_name');
 			$table->string('middle_name');
-			$table->string('third_name')->nullable();
+			$table->string('third_name');
 			$table->string('last_name');
 			$table->string('maiden_name');
 			
@@ -44,12 +44,11 @@ class CreateEmployeesTable extends Migration {
 			$table->string('extra_address');			//colonia
 			$table->string('zip_code');
 
-			$table->integer('city_id')->unsigned();
+			$table->string('city');
 			$table->integer('state_id')->unsigned();
 
 			$table->integer('status_id')->default(1);
 
-			$table->foreign('city_id')->references('id')->on('localidades');			
 			$table->foreign('state_id')->references('id')->on('estados');			
 
 			$table->timestamps();

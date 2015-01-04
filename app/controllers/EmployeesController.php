@@ -33,18 +33,42 @@ class EmployeesController extends BaseController {
     public function create()
     {
         $genres  = \Lang::get('utils.genre');
-        // $cities  = $this->cityRepo->getList();
         $states  = $this->stateRepo->getList();
         return View::make('employees/new', compact('genres','states'));
     }
 
     public function register()
     {
-        $user = $this->employeeRepo->newEmployee();
-        $manager = new EmployeeManager($user, Input::all());
+        //dd(Input::all());
+        $employee = $this->employeeRepo->newEmployee();
+        $manager = new EmployeeManager($employee, Input::all());
         $manager->save();
 
-        return Redirect::route('home');
+        return Redirect::route('employees');
+    }
+
+    public function update($id)
+    {
+        $employee = $this->employeeRepo->find($id);
+
+        $this->notFoundUnless($employee);
+
+        $birthdate = str_replace("/","-",$employee->birthdate);
+        $employee->birthdate = date("d/m/Y", strtotime($birthdate));
+
+        $genres  = \Lang::get('utils.genre');
+        $states  = $this->stateRepo->getList();
+        return View::make('employees/edit', compact('employee','genres','states'));
+    }
+
+    public function saveUpdate($id)
+    {
+        $employee = $this->employeeRepo->find($id);
+        $manager = new EmployeeManager($employee, Input::all());
+
+        $manager->save();
+
+        return Redirect::route('employees');
     }
 
 } 

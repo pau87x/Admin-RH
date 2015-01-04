@@ -33,9 +33,9 @@ return array(
 	"confirmed"      => "El campo :attribute confirmación no coincide.",
 	"different"      => "El campo :attribute and :other debe ser diferente.",
 	"email"          => "El formato del :attribute  es invalido.",
-	"exists"         => "El campo :attribute seleccionado  is invalid.",
+	"exists"         => "El campo :attribute seleccionado es invalido.",
 	"image"          => "El campo :attribute debe ser una imagen.",
-	"in"             => "El campo :attribute seleccionado  is invalid.",
+	"in"             => "El campo :attribute seleccionado es invalido.",
 	"integer"        => "El campo :attribute debe ser un entero.",
 	"ip"             => "El campo :attribute Debe ser una dirección IP válida.",
 	"match"          => "El formato :attribute es invalido.",
@@ -51,7 +51,7 @@ return array(
 		"string"  => "El campo :attribute debe tener al menos :min caracteres.",
 	),
 	"not_in"         => "El campo :attribute seleccionado es invalido.",
-	"numeric"        => "El campo :attribute debe ser un numero.",
+	"numeric"        => "El campo :attribute debe ser numérico.",
 	"required"       => "El campo :attribute es requerido",
 	"same"           => "El campo :attribute y :other debe coincidir.",
 	"size"           => array(
@@ -79,6 +79,12 @@ return array(
 
 	//'custom' => array(),
 	'custom' => array(
+		'phone' => array(
+		    'regex' => 'El campo :attribute debe tener de 10 dígitos.'
+		),
+		'cell_phone' => array(
+		    'regex' => 'El campo :attribute debe tener de 10 dígitos.'
+		),
 	    'rfc' => array(
 	        'regex' => 'El campo :attribute no tiene un formato válido.'
 	    ),
@@ -131,7 +137,7 @@ return array(
         'zip_code' => 'código postal',
 
         'city' => 'Ciudad',
-        'state' => 'Estado'
+        'state_id' => 'Estado'
 	),
 
 );

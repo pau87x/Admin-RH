@@ -28,9 +28,8 @@ class EmployeeRepo extends BaseRepo {
 
     public function newEmployee()
     {
-        $user = new User();
-        $user->type = 'employee';
-        return $user;
+        $employee = new Employee();
+        return $employee;
     }
 
 } 

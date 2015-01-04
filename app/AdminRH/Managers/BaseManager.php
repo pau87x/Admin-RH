@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: silence
- * Date: 5/20/14
- * Time: 7:46 PM
- */
 
 namespace AdminRH\Managers;
 
@@ -43,6 +37,7 @@ abstract class BaseManager {
     {
         $this->isValid();
 
+        //dd($this->data);
         $this->entity->fill($this->prepareData($this->data));
         $this->entity->save();
 

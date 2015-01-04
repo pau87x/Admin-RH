@@ -59,7 +59,8 @@
 
             {{ Field::text('city') }}
 
-            {{ Field::select('state', $states) }}
+            {{ Field::select('state_id', $states) }}
+
 
             <p>
                 <input type="submit" value="Registrar" class="btn btn-success">

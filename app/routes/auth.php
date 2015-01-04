@@ -10,7 +10,10 @@ Route::get('employees', ['as' => 'employees', 'uses' => 'EmployeesController@sho
 Route::get('employee/register', ['as' => 'new_employee', 'uses' => 'EmployeesController@create']);
 Route::post('employee/register', ['as' => 'save_new_employee', 'uses' => 'EmployeesController@register']);
 
-Route::get('employee/update', ['as' => 'update_employee', 'uses' => 'EmployeesController@update']);
-Route::put('employee/update', ['as' => 'save_update_employee', 'uses' => 'EmployeesController@saveUpdate']);
+Route::get('employee/update/{id}', ['as' => 'update_employee', 'uses' => 'EmployeesController@update']);
+Route::put('employee/update/{id}', ['as' => 'save_update_employee', 'uses' => 'EmployeesController@saveUpdate']);
+
+Route::get('employee/status/{id}', ['as' => 'update_status', 'uses' => 'EmployeesController@updateStatus']);
+Route::put('employee/stautus/{id}', ['as' => 'save_status', 'uses' => 'EmployeesController@saveStatus']);
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);

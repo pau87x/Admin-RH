@@ -55,7 +55,6 @@
                         <span class="icon icon-wh i-profile"></span> {{ Auth::user()->full_name }}  <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('profile') }}">Editar perfil</a></li>
                         <li><a href="{{ route('account') }}">Editar usuario</a></li>
                         <li><a href="{{ route('logout') }}">Salir</a></li>
                     </ul>
@@ -91,8 +90,6 @@
             <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
             <li><a href="{{ route('employees') }}">Empleados</a></li>
             <li><a href="{{ route('new_employee') }}">Nuevo</a></li>
-            <li><a href="{{ route('update_employee') }}">Editar</a></li>
-            <li><a href="@{{ route('update_employee') }}">Cambiar Estatus</a></li>
           </ul>
           <!--
           <ul class="nav nav-sidebar">
