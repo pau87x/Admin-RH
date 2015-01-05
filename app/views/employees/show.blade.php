@@ -31,7 +31,7 @@
         <td>
           <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button"></a>
           <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button"></a>
-          <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('changes', [$employee->id]) }}" role="button"></a> 
+          <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('layoff', [$employee->id]) }}" role="button"></a> 
         </td>
 
       </tr>

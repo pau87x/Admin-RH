@@ -50,13 +50,11 @@ class ChangesController extends BaseController {
 
         $change = $this->changeRepo->newChange();
 
-        Input::merge(array('employee_id' => 1));
-
+        Input::merge(array('employee_id' => 1)); //checar_bug
 
         $manager = new ChangeManager($change, Input::all());
         $manager->save();
 
-       // return Redirect::route('changes');
         return Redirect::route('changes', $employee->id);
     }
 

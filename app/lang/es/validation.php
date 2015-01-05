@@ -124,20 +124,20 @@ return array(
 		'birthdate' => 'fecha de nacimiento',
         'genre' => 'género',
 
-        'phone' => 'Teléfono',
-        'cell_phone' => 'Celular',
+        'phone' => 'teléfono',
+        'cell_phone' => 'celular',
         'rfc' => 'RFC',
         'curp' => 'CURP',
         'ss_number' => 'número de Seguro Social',
 
-        'street' => 'Calle',
+        'street' => 'calle',
         'no_ext' => 'No. Ext',
         'no_int' => 'No. Int',
         'extra_address' => 'colonia',
         'zip_code' => 'código postal',
 
-        'city' => 'Ciudad',
-        'state_id' => 'Estado',
+        'city' => 'ciudad',
+        'state_id' => 'estado',
 
         'date' => 'fecha',
         'title_id' => 'puesto',
@@ -145,7 +145,9 @@ return array(
         'supervisor_id' => 'supervisor',
         'salary' => 'salario',
 
-        'name' => 'nombre'
+        'name' => 'nombre',
+        'reason' => 'motivo',
+        'comments' => 'comentario',
 	),
 
 );
