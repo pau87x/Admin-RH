@@ -30,6 +30,13 @@ Route::post('centers/register', ['as' => 'save_new_center', 'uses' => 'CentersCo
 Route::get('centers/update/{id}', ['as' => 'update_center', 'uses' => 'CentersController@update']);
 Route::put('centers/update/{id}', ['as' => 'save_update_center', 'uses' => 'CentersController@saveUpdate']);
 
+Route::get('titles', ['as' => 'titles', 'uses' => 'TitlesController@show']);
+Route::get('titles/register', ['as' => 'new_title', 'uses' => 'TitlesController@create']);
+Route::post('titles/register', ['as' => 'save_new_title', 'uses' => 'TitlesController@register']);
+
+Route::get('titles/update/{id}', ['as' => 'update_title', 'uses' => 'TitlesController@update']);
+Route::put('titles/update/{id}', ['as' => 'save_update_title', 'uses' => 'TitlesController@saveUpdate']);
+
 
 // Route::get('employee/status/{id}', ['as' => 'update_status', 'uses' => 'EmployeesController@updateStatus']);
 // Route::put('employee/status/{id}', ['as' => 'save_status', 'uses' => 'EmployeesController@saveStatus']);

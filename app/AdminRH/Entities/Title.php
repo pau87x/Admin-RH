@@ -2,7 +2,7 @@
 
 class Title extends \Eloquent {
 
-	protected $fillable = [];
+	protected $fillable = ['name'];
     protected $table = 'titles';
 
 }

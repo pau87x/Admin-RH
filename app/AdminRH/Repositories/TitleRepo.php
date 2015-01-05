@@ -16,9 +16,20 @@ class TitleRepo extends BaseRepo {
         return Title::lists('name', 'id');
     }
 
+    public function getAll()
+    {    
+        return Title::get();
+    }
+
+
     public function find($id)
     {
         return $this->model->find($id);
     }
 
+    public function newTitle()
+    {
+        $title = new Title();
+        return $title;
+    }
 } 

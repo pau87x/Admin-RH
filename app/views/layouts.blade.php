@@ -90,10 +90,10 @@
             <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
             <li><a href="{{ route('employees') }}">Empleados</a></li>
             <li><a href="{{ route('new_employee') }}">Nuevo</a></li>
-            <li><a href="#">Centros de Servicio</a></li>
-            <li><a href="#">Nuevo</a></li>
-            <li><a href="#">Puestos</a></li>
-            <li><a href="#">Nuevo</a></li>
+            <li><a href="{{ route('centers') }}">Centros de Servicio</a></li>
+            <li><a href="{{ route('new_center') }}">Nuevo</a></li>
+            <li><a href="{{ route('titles') }}">Puestos</a></li>
+            <li><a href="{{ route('new_title') }}">Nuevo</a></li>
           </ul>
           <!--
           <ul class="nav nav-sidebar">
