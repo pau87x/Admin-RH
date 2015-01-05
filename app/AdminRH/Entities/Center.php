@@ -2,5 +2,5 @@
 
 class Center extends \Eloquent {
 
-	protected $fillable = [];
+	protected $fillable = ['name'];
 }

@@ -137,7 +137,15 @@ return array(
         'zip_code' => 'código postal',
 
         'city' => 'Ciudad',
-        'state_id' => 'Estado'
+        'state_id' => 'Estado',
+
+        'date' => 'fecha',
+        'title_id' => 'puesto',
+        'center_id' => 'centro',
+        'supervisor_id' => 'supervisor',
+        'salary' => 'salario',
+
+        'name' => 'nombre'
 	),
 
 );

@@ -12,9 +12,10 @@
       <tr>
         <th>Código</th>
         <th>Nombre Completo</th>
-        <th>Género</th>
-        <th>Teléfono</th>
-        <th>Dirección</th>
+        <th>Estatus</th>
+        <th>Puesto</th>
+        <th>Centro</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -22,12 +23,16 @@
       <tr>
         <td>{{ $employee->code }}</td>
         <td>{{ $employee->full_name }}</td>
-        <td>{{ $employee->genre_title }}</td>
-        <td>{{ $employee->phone }}</td>
-        <td>{{ $employee->address }}</td>
+        <!--
+        <td>{{ $employee->genre_title }}</td> -->
+        <td>{{ $employee->phone }}</td> 
+        <!--<td>{{ $employee->address }}</td> -->
 
-        <td><a class="btn btn-success pull-right" href="{{ route('update_employee', [$employee->id]) }}" role="button">Editar</a></td>
-        <td><a class="btn btn-danger pull-right" href="{{ route('update_employee', [$employee->id]) }}" role="button">Cambiar Estatus</a></td>
+        <td>
+          <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button"></a>
+          <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button"></a>
+          <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('changes', [$employee->id]) }}" role="button"></a> 
+        </td>
 
       </tr>
       @endforeach

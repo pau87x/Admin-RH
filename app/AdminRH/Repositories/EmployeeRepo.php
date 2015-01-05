@@ -21,6 +21,12 @@ class EmployeeRepo extends BaseRepo {
         // DB::table('roles')->lists('title');
     }
 
+    public function getListSupervisors()
+    {
+       return Employee::lists('first_name', 'id');
+    }
+
+
     public function getActive()
     {
         return Employee::where('status_id', '=', 1)->get();

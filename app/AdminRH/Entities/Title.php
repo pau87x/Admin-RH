@@ -3,4 +3,6 @@
 class Title extends \Eloquent {
 
 	protected $fillable = [];
+    protected $table = 'titles';
+
 }

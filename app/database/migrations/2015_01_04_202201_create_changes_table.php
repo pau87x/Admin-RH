@@ -16,17 +16,17 @@ class CreateChangesTable extends Migration {
 		{
 			$table->increments('id');
 
-			$table->integer('user_id')->unsigned();
+			$table->integer('employee_id')->unsigned();
 			$table->date('date');
 			$table->integer('title_id')->unsigned();
 			$table->integer('center_id')->unsigned();
 			$table->integer('supervisor_id')->unsigned();
  			$table->decimal('salary');
 
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('employee_id')->references('id')->on('employees');
 			$table->foreign('title_id')->references('id')->on('titles');
 			$table->foreign('center_id')->references('id')->on('centers');
-			$table->foreign('supervisor_id')->references('id')->on('users');		
+			$table->foreign('supervisor_id')->references('id')->on('employees');		
 			
 			$table->timestamps();
 		});
