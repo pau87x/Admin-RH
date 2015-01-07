@@ -62,7 +62,7 @@ class EmployeeTableSeeder extends Seeder {
                 'city' => $faker->randomElement(['Orizaba', 'Córdoba', 'CD. Mendoza']),
                 'state_id' => $faker->numberBetween($min = 1, $max = 32), 
 
-                'status_id'   => $faker->randomElement([0, 1, 2])
+                'status_id'   => $faker->randomElement([1, 2, 3])
 
 			]);
 		}

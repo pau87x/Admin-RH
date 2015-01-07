@@ -6,14 +6,9 @@ class Employee extends \Eloquent {
                             'birthdate' ,'genre',
                             'phone' ,'cell_phone','email',
                             'rfc','curp','ss_number',
-                            'street','no_ext','extra_address','zip_code','city','state_id'];
+                            'street','no_ext','extra_address','zip_code','city','state_id','status_id'];
 
     protected $perPage = 20;
-
-    public function user()
-    {
-        return $this->hasOne('AdminRH\Entities\User', 'id', 'id');
-    }
 
     public function city()
     {
@@ -30,9 +25,19 @@ class Employee extends \Eloquent {
         return $this->belongsTo('AdminRH\Entities\Status');
     }
 
+    public function changes()
+    {
+        return $this->hasMany('AdminRH\Entities\Change');
+    }
+
+    public function getLastChangeAttribute()
+    {
+        return $this->changes->last();
+    }
+
     public function getFullNameAttribute()
     {
-        return $this->first_name . ' ' .   $this->middle_name . ' ' .   $this->third_name . ' ' . $this->last_name  . ' ' . $this->maiden_name; 
+        return $this->last_name  . ' ' . $this->maiden_name . ' ' . $this->first_name . ' ' .   $this->middle_name . ' ' .   $this->third_name;
     }
 
     public function getAddressAttribute()
@@ -43,6 +48,11 @@ class Employee extends \Eloquent {
     public function getGenreTitleAttribute()
     {
         return \Lang::get('utils.genre.' . $this->genre);
+    }
+
+    public function getStatusAttribute()
+    {
+        return \Lang::get('utils.status.' . $this->status_id);
     }
 
 }

@@ -9,5 +9,10 @@ return [
     'genre' => [
         'male'     => 'Masculino',
         'female'   => 'Femenino'
+    ],
+    'status' => [
+        '1'     => 'Baja',
+        '2'   => 'Activo',
+        '3'   => 'Permiso'
     ]
 ];

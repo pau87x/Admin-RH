@@ -6,11 +6,10 @@ class Change extends \Eloquent {
 
     protected $perPage = 20;
 
-    public function user()
+    public function employee()
     {
-        return $this->hasOne('AdminRH\Entities\User', 'id', 'id');
+        return $this->belongsTo('AdminRH\Entities\Employee');
     }
-
 
     public function title()
     {
@@ -24,7 +23,7 @@ class Change extends \Eloquent {
 
     public function supervisor()
     {
-        return $this->belongsTo('AdminRH\Entities\User');
+        return $this->belongsTo('AdminRH\Entities\Employee');
     }
 
     // public function status()

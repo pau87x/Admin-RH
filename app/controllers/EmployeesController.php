@@ -1,11 +1,11 @@
 <?php
 
-use AdminRH\Managers\RegisterManager;
+//use AdminRH\Managers\RegisterManager;
 use AdminRH\Repositories\EmployeeRepo;
 use AdminRH\Repositories\CityRepo;
 use AdminRH\Repositories\StateRepo;
-use AdminRH\Managers\AccountManager;
-use AdminRH\Managers\ProfileManager;
+// use AdminRH\Managers\AccountManager;
+// use AdminRH\Managers\ProfileManager;
 use AdminRH\Managers\EmployeeManager;
 
 class EmployeesController extends BaseController {
@@ -34,6 +34,7 @@ class EmployeesController extends BaseController {
     {
         $genres  = \Lang::get('utils.genre');
         $states  = $this->stateRepo->getList();
+
         return View::make('employees/new', compact('genres','states'));
     }
 
@@ -58,6 +59,7 @@ class EmployeesController extends BaseController {
 
         $genres  = \Lang::get('utils.genre');
         $states  = $this->stateRepo->getList();
+
         return View::make('employees/edit', compact('employee','genres','states'));
     }
 

@@ -3,7 +3,12 @@
 class Status extends \Eloquent {
 
 	protected $fillable = [];
-	protected $table = 'status';
+    protected $table = 'status';
+
+    public function getNameStatusAttribute()
+    {
+       return substr($this->name);;
+    }
 
 
 }

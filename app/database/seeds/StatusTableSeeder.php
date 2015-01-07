@@ -8,17 +8,14 @@ class StatusTableSeeder extends Seeder {
 	{
 
         Status::create([
-            'id'   => 0,
             'name' => 'Inactive'
         ]);
 
         Status::create([
-           'id'   => 1,
            'name' => 'Active'
         ]);
 
         Status::create([
-            'id'   => 2,
             'name' => 'Permission'
         ]);
 	}

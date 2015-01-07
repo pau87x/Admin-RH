@@ -23,11 +23,9 @@
       <tr>
         <td>{{ $employee->code }}</td>
         <td>{{ $employee->full_name }}</td>
-        <!--
-        <td>{{ $employee->genre_title }}</td> -->
-        <td>{{ $employee->phone }}</td> 
-        <!--<td>{{ $employee->address }}</td> -->
-
+        <td>{{ $employee->status }}</td>
+        <td>{{ $employee->last_change->title }}</td>
+        <td>{{ $employee->center }}</td>
         <td>
           <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button"></a>
           <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button"></a>
