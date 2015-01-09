@@ -2,6 +2,7 @@
 
 @section('extra-css')
 <link href="{{ asset('bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet">
+<link href="{{ asset('bootstrap-select/dist/css/bootstrap-select.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -17,9 +18,9 @@
 
             {{ Field::select('title_id', $titles) }}
 
-            {{ Field::select('center_id', $centers) }}
+            {{ Field::select('center_id', $centers, null, ['class'=>'selectpicker', 'data-live-search'=>'true']) }}
 
-            {{ Field::select('supervisor_id', $supervisors) }}
+            {{ Field::select('supervisor_id', $supervisors, null, ['class'=>'selectpicker', 'data-live-search'=>'true']) }}
 
             {{ Field::text('salary') }}
 
@@ -39,6 +40,8 @@
 @section('extra-js')
 <script src="{{ asset('bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker/js/bootstrap-datepicker.es.js') }}"></script>
+<script src="{{ asset('bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('bootstrap-select/dist/js/i18n/defaults-es_CL.min.js') }}"></script>
 <script>
 $(document).ready(function(){ 
     $('.datepicker').datepicker({
@@ -46,6 +49,7 @@ $(document).ready(function(){
         language: "es",
         startView: 2
     });
+    $('.selectpicker').selectpicker();
 });
 </script>
 @endsection

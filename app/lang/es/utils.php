@@ -11,7 +11,7 @@ return [
         'female'   => 'Femenino'
     ],
     'status' => [
-        '1'     => 'Baja',
+        '1'   => 'Baja',
         '2'   => 'Activo',
         '3'   => 'Permiso'
     ]

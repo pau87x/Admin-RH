@@ -25,15 +25,15 @@
 
             {{ Field::text('maiden_name') }}
 
-            {{ Field::text('birthdate', null, ['id' => 'birthdate', 'class'=>'datepicker']) }}
+            {{ Field::text('birthdate', null, ['id' => 'birthdate', 'class'=>'datepicker','maxlength' => '10']) }}
 
             {{ Field::select('genre', $genres) }}
 
             <h3>Contacto </h3>
 
-            {{ Field::text('phone') }}
+            {{ Field::text('phone', null, ['maxlength' => '10']) }}
 
-            {{ Field::text('cell_phone') }}
+            {{ Field::text('cell_phone', null, ['maxlength' => '10']) }}
 
             {{ Field::email('email') }}
 
