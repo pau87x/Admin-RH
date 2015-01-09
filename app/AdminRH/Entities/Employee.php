@@ -54,6 +54,13 @@ class Employee extends \Eloquent {
         return $this->street . ' No. ' .   $this->no_ext . ', ' .   $this->city . ', ' . $this->state->name; 
     }
 
+    public function getFechaNacAttribute()
+    {
+        $birthdate = str_replace("/","-", $this->birthdate);
+        $birthdate = date("d/m/Y", strtotime($birthdate));
+        return $birthdate; 
+    }
+
     public function getGenreTitleAttribute()
     {
         return \Lang::get('utils.genre.' . $this->genre);

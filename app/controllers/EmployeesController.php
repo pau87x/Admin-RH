@@ -32,6 +32,13 @@ class EmployeesController extends BaseController {
         return View::make('employees/show', compact('employees'));
     }
 
+    public function showEmployee($id)
+    {
+        $employee = $this->employeeRepo->find($id);
+
+        return View::make('employees/show-employee', compact('employee'));
+    }
+
     public function create()
     {
         $genres  = \Lang::get('utils.genre');

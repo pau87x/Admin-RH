@@ -7,8 +7,11 @@ Route::put('profile', ['as' => 'update_profile', 'uses' => 'UsersController@upda
 
 Route::get('employees', ['as' => 'employees', 'uses' => 'EmployeesController@show']);
 
+
 Route::get('employee/register', ['as' => 'new_employee', 'uses' => 'EmployeesController@create']);
 Route::post('employee/register', ['as' => 'save_new_employee', 'uses' => 'EmployeesController@register']);
+
+Route::get('employee/{id}', ['as' => 'show_employee', 'uses' => 'EmployeesController@showEmployee']);
 
 Route::get('employee/update/{id}', ['as' => 'update_employee', 'uses' => 'EmployeesController@update']);
 Route::put('employee/update/{id}', ['as' => 'save_update_employee', 'uses' => 'EmployeesController@saveUpdate']);
