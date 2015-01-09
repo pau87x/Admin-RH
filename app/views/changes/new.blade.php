@@ -14,7 +14,7 @@
 
             {{ Form::open(['route' => array('save_new_change', $employee->id), 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
 
-            {{ Field::text('date', null, ['id' => 'date', 'class'=>'datepicker']) }}
+            {{ Field::text('date', null, ['id' => 'date', 'class'=>'datepicker','maxlength' => '10']) }}
 
             {{ Field::select('title_id', $titles) }}
 
@@ -47,7 +47,10 @@ $(document).ready(function(){
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         language: "es",
-        startView: 2
+        startView: 1,
+        todayHighlight: true,
+        todayBtn: true,
+        autoclose: true
     });
     $('.selectpicker').selectpicker();
 });
