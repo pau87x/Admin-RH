@@ -15,8 +15,9 @@ class EmployeeRepo extends BaseRepo {
     public function getList()
     {
        // return Employee::lists('code', 'first_name');
-        return Employee::get();
-        
+       //return Employee::get();
+        return Employee::with('changes.center')->get();
+
         // DB::table('users')->get();
         // DB::table('roles')->lists('title');
     }
@@ -25,7 +26,6 @@ class EmployeeRepo extends BaseRepo {
     {
        return Employee::lists('first_name', 'id');
     }
-
 
     public function getActive()
     {

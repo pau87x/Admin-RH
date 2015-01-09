@@ -21,24 +21,6 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
 
     protected $fillable = array('full_name', 'email', 'password');
 
-    public function candidate()
-    {
-        return $this->hasOne('AdminRH\Entities\Candidate', 'id', 'id');
-    }
-
-    public function getCandidate()
-    {
-        $candidate = $this->candidate;
-
-        if (is_null ($candidate))
-        {
-            $candidate = new Candidate();
-            $candidate->id = $this->id;
-        }
-
-        return $candidate;
-    }
-
     public function setPasswordAttribute($value)
     {
         if ( ! empty ($value))

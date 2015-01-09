@@ -27,6 +27,8 @@ class EmployeesController extends BaseController {
     {
         $employees = $this->employeeRepo->getList();
 
+       // dd($employees);
+
         return View::make('employees/show', compact('employees'));
     }
 

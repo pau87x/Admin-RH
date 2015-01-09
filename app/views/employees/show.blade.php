@@ -24,7 +24,7 @@
         <td>{{ $employee->code }}</td>
         <td>{{ $employee->full_name }}</td>
         <td>{{ $employee->status }}</td>
-        <td>{{ $employee->last_change->title }}</td>
+        <td>{{ $employee->supervisor }}</td>
         <td>{{ $employee->center }}</td>
         <td>
           <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button"></a>

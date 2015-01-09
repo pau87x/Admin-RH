@@ -1,9 +1,8 @@
 <?php
 
 use AdminRH\Entities\User;
+//use AdminRH\Repositories\UserRepo;
 use AdminRH\Managers\RegisterManager;
-use AdminRH\Repositories\CandidateRepo;
-use AdminRH\Repositories\CategoryRepo;
 use AdminRH\Managers\AccountManager;
 use AdminRH\Managers\ProfileManager;
 
@@ -12,12 +11,10 @@ class UsersController extends BaseController {
     protected $candidateRepo;
     protected $categoryRepo;
 
-    public function __construct(CandidateRepo $candidateRepo,
-                                CategoryRepo  $categoryRepo)
-    {
-        $this->candidateRepo = $candidateRepo;
-        $this->categoryRepo  = $categoryRepo;
-    }
+    // public function __construct(UserRepo $userRepo)
+    // {
+    //     $this->userRepo = $userRepo;
+    // }
 
     public function signUp()
     {
@@ -26,9 +23,9 @@ class UsersController extends BaseController {
 
     public function register()
     {
-        $user = $this->candidateRepo->newCandidate();
-        $manager = new RegisterManager($user, Input::all());
-        $manager->save();
+        // $user = $this->userRepo->newUser();
+        // $manager = new RegisterManager($user, Input::all());
+        // $manager->save();
 
         return Redirect::route('home');
     }
@@ -49,26 +46,26 @@ class UsersController extends BaseController {
         return Redirect::route('home');
     }
 
-    public function profile()
-    {
-        $user = Auth::user();
-        $candidate = $user->getCandidate();
+    // public function profile()
+    // {
+    //     $user = Auth::user();
+    //     $candidate = $user->getCandidate();
 
-        $categories = $this->categoryRepo->getList();
-        $job_types  = \Lang::get('utils.job_types');
+    //     $categories = $this->categoryRepo->getList();
+    //     $job_types  = \Lang::get('utils.job_types');
 
-        return View::make('users/profile', compact('user', 'candidate', 'categories', 'job_types'));
-    }
+    //     return View::make('users/profile', compact('user', 'candidate', 'categories', 'job_types'));
+    // }
 
-    public function updateProfile()
-    {
-        $user = Auth::user();
-        $candidate = $user->getCandidate();
-        $manager = new ProfileManager($candidate, Input::all());
+    // public function updateProfile()
+    // {
+    //     $user = Auth::user();
+    //     $candidate = $user->getCandidate();
+    //     $manager = new ProfileManager($candidate, Input::all());
 
-        $manager->save();
+    //     $manager->save();
 
-        return Redirect::route('home');
-    }
+    //     return Redirect::route('home');
+    // }
 
 } 

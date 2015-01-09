@@ -30,9 +30,18 @@ class Employee extends \Eloquent {
         return $this->hasMany('AdminRH\Entities\Change');
     }
 
-    public function getLastChangeAttribute()
+    public function getSupervisorAttribute()
     {
-        return $this->changes->last();
+        $last_change = $this->changes->last();
+        $supervisor_id = $last_change['supervisor_id'];
+        return $supervisor_id;
+    }
+
+    public function getCenterAttribute()
+    {
+        $last_change = $this->changes->last();
+        $center_id = $last_change['center_id'];
+        return $center_id;
     }
 
     public function getFullNameAttribute()
