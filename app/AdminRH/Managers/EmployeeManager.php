@@ -8,7 +8,6 @@ class EmployeeManager extends BaseManager {
             'code'       => 'required|alpha_dash|unique:employees,code,'. $this->entity->id,
             'first_name' => 'required|alpha',
             'middle_name'=> 'alpha',
-            'third_name' => 'alpha',
 
             'last_name'  => 'required|alpha',
             'maiden_name'=> 'required|alpha',

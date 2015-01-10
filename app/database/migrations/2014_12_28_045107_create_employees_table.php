@@ -19,7 +19,6 @@ class CreateEmployeesTable extends Migration {
 			$table->string('code')->unique();
 			$table->string('first_name');
 			$table->string('middle_name');
-			$table->string('third_name');
 			$table->string('last_name');
 			$table->string('maiden_name');
 			

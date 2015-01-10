@@ -15,7 +15,6 @@ class EmployeeTableSeeder extends Seeder {
 		{
             $firstName  = $faker->firstName;
             $middleName = $faker->firstName;
-            $thirdName  = $faker->firstName;
             $lastName   = $faker->lastName;
             $maidenName   = $faker->lastName;
 

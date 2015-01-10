@@ -118,7 +118,6 @@ return array(
         'code' => 'código',
 		'first_name' => 'nombre',
 		'middle_name' => 'segundo nombre',
-		'third_name' => 'tercer nombre',
 		'last_name' => 'apellido paterno',
 		'maiden_name' => 'apellido materno',
 		'birthdate' => 'fecha de nacimiento',

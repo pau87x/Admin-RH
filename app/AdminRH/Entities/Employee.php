@@ -2,7 +2,7 @@
 
 class Employee extends \Eloquent {
 
-    protected $fillable = ['code', 'first_name', 'middle_name', 'third_name','last_name','maiden_name',
+    protected $fillable = ['code', 'first_name', 'middle_name','last_name','maiden_name',
                             'birthdate' ,'genre',
                             'phone' ,'cell_phone','email',
                             'rfc','curp','ss_number',
@@ -46,7 +46,7 @@ class Employee extends \Eloquent {
 
     public function getFullNameAttribute()
     {
-        return $this->last_name  . ' ' . $this->maiden_name . ' ' . $this->first_name . ' ' .   $this->middle_name . ' ' .   $this->third_name;
+        return $this->last_name  . ' ' . $this->maiden_name . ' ' . $this->first_name . ' ' .   $this->middle_name;
     }
 
     public function getAddressAttribute()

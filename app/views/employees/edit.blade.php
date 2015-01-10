@@ -19,8 +19,6 @@
 
             {{ Field::text('middle_name') }}
 
-            {{ Field::text('third_name') }}
-
             {{ Field::text('last_name') }}
 
             {{ Field::text('maiden_name') }}
