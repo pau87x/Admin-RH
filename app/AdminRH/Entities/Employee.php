@@ -27,21 +27,34 @@ class Employee extends \Eloquent {
 
     public function changes()
     {
-        return $this->hasMany('AdminRH\Entities\Change');
+        return $this->hasMany('AdminRH\Entities\Change', 'employee_id');
     }
 
-    public function getSupervisorAttribute()
+    public function getLastChangeAttribute()
     {
-        $last_change = $this->changes->last();
-        $supervisor_id = $last_change['supervisor_id'];
-        return $supervisor_id;
+        return $this->changes->sortBy('created_at')->last();
+    }
+
+    public function getTitleAttribute()
+    {
+        if($change = $this->changes->sortBy('created_at')->last())
+            $title = $this->last_change->title->name;
+        else
+            $title = '-';
+
+
+        return $title;
     }
 
     public function getCenterAttribute()
     {
-        $last_change = $this->changes->last();
-        $center_id = $last_change['center_id'];
-        return $center_id;
+        if($change = $this->changes->sortBy('created_at')->last())
+            $center = $this->last_change->center->name;
+        else
+            $center = '-';
+
+
+        return $center;
     }
 
     public function getFullNameAttribute()

@@ -26,24 +26,4 @@ class Change extends \Eloquent {
         return $this->belongsTo('AdminRH\Entities\Employee');
     }
 
-    // public function status()
-    // {
-    //     return $this->belongsTo('AdminRH\Entities\Status');
-    // }
-
-    // public function getTitleAttribute()
-    // {
-    //     return $this->$title->name;
-    // }
-
-    // public function getSupervisorAttribute()
-    // {
-    //     return $this->$supervisor->first_name; 
-    // }
-
-    // public function getCenterAttribute()
-    // {
-    //     return $this->$center->name;
-    // }
-
 }

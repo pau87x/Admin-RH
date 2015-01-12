@@ -37,7 +37,7 @@
           <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button">Cambiar Puesto</a>
           <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('layoff', [$employee->id]) }}" role="button">Dar baja</a> 
           @endif
-          @if (is_admin())
+          @if (is_admin() && $employee->status_id === 1)
            <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button">Reasignar</a>
           @endif
         </p>

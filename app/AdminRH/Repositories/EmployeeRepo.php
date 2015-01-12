@@ -4,6 +4,7 @@ namespace AdminRH\Repositories;
 
 use AdminRH\Entities\Employee;
 use AdminRH\Entities\User;
+use DB;
 
 class EmployeeRepo extends BaseRepo {
 
@@ -15,21 +16,24 @@ class EmployeeRepo extends BaseRepo {
     public function getList()
     {
        // return Employee::lists('code', 'first_name');
-       //return Employee::get();
-        return Employee::with('changes.center')->get();
+       return Employee::get();
+       //return Employee::with('changes.title')->get();
+    }
 
-        // DB::table('users')->get();
-        // DB::table('roles')->lists('title');
+    public function getListPaginate()
+    {
+       return Employee::paginate(10);
     }
 
     public function getListSupervisors()
     {
-       return Employee::lists('first_name', 'id');
+        //return Employee::where('status_id', '=', 2)->lists('first_name', 'id');
+        return Employee::where('status_id', '=', 2)->lists(DB::raw('concat(first_name," ",middle_name," ",last_name," ",maiden_name)'), 'id');
     }
 
     public function getActive()
     {
-        return Employee::where('status_id', '=', 1)->get();
+        return Employee::where('status_id', '=', 2)->get();
     }
 
     public function newEmployee()

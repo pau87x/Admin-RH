@@ -39,6 +39,7 @@ class ChangesController extends BaseController {
         $titles       = $this->titleRepo->getList();
         $centers      = $this->centerRepo->getList();
         $supervisors  = $this->employeeRepo->getListSupervisors();
+        //dd($supervisors);
         return View::make('changes/new', compact('employee','titles','centers','supervisors'));
     }
 

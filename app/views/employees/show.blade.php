@@ -16,8 +16,7 @@
 <a class="btn btn-success" href="{{ route('new_employee') }}" role="button">Nuevo</a>
 
 </h1>
-<!-- <h3 class="sub-header">Personal Activo</h3>
- --><div class="table-responsive">
+<div class="table-responsive">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -43,14 +42,17 @@
              <span class="label label-default">{{ $employee->status }}</span>
             @endif
         </td>
-        <td>{{ $employee->supervisor }}</td>
-        <td>{{ $employee->center }}</td>
+        <td> {{ $employee->title }} </td>
+        <td> {{ $employee->center }} </td>
         <td>
           <div class="pull-right">
             <a class="btn btn-default glyphicon glyphicon-eye-open" href="{{ route('show_employee', [$employee->id]) }}" role="button"></a>
             <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button"></a>
             <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button"></a>
-            <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('layoff', [$employee->id]) }}" role="button"></a> 
+            <a class="btn btn-danger glyphicon glyphicon-chevron-down" href="{{ route('layoff', [$employee->id]) }}" role="button"></a> 
+            @if (is_admin())
+            <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('delete_employee', [$employee->id]) }}" role="button"></a> 
+            @endif
           </div>
         </td>
 
@@ -58,5 +60,9 @@
       @endforeach
     </tbody>
   </table>
+  <div class="text-center">
+      {{ $employees->links() }}
+  </div>
+
 </div>
 @stop
