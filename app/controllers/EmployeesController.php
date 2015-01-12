@@ -4,6 +4,8 @@
 use AdminRH\Repositories\EmployeeRepo;
 use AdminRH\Repositories\CityRepo;
 use AdminRH\Repositories\StateRepo;
+use AdminRH\Repositories\TitleRepo;
+use AdminRH\Repositories\CenterRepo;
 // use AdminRH\Managers\AccountManager;
 // use AdminRH\Managers\ProfileManager;
 use AdminRH\Managers\EmployeeManager;
@@ -16,11 +18,15 @@ class EmployeesController extends BaseController {
 
     public function __construct(EmployeeRepo $employeeRepo,
                                 CityRepo $cityRepo,
-                                StateRepo $stateRepo)
+                                StateRepo $stateRepo,
+                                TitleRepo $titleRepo,
+                                CenterRepo $centerRepo)
     {
         $this->employeeRepo = $employeeRepo;
         $this->cityRepo = $cityRepo;
         $this->stateRepo = $stateRepo;
+        $this->titleRepo = $titleRepo;
+        $this->centerRepo = $centerRepo;
     }
 
     public function show()
@@ -81,5 +87,36 @@ class EmployeesController extends BaseController {
 
         return Redirect::route('employees');
     }
+
+
+    public function filterReport()
+    {
+
+        $status  = \Lang::get('utils.status');
+        $titles  = $this->titleRepo->getList();
+        $centers = $this->centerRepo->getList();
+
+        return View::make('employees/report', compact('status','titles','centers'));
+       
+    }
+
+    public function filterReportSearch()
+    {
+        $status = Input::get('status');
+        $center = Input::get('center');
+        $title = Input::get('title');
+
+        $employees = $this->employeeRepo->getFilterList($status,$title,$center);
+        return View::make('employees/show-report', compact('employees'));
+    }
+
+    public function supervisorReport(){
+
+        $supervisors  = $this->employeeRepo->getListSupervisors();
+
+        return View::make('employees/report-supervisor', compact('supervisors'));
+       
+    }
+
 
 } 

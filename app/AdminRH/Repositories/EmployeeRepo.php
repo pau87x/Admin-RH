@@ -15,7 +15,6 @@ class EmployeeRepo extends BaseRepo {
 
     public function getList()
     {
-       // return Employee::lists('code', 'first_name');
        return Employee::get();
        //return Employee::with('changes.title')->get();
     }
@@ -27,8 +26,12 @@ class EmployeeRepo extends BaseRepo {
 
     public function getListSupervisors()
     {
-        //return Employee::where('status_id', '=', 2)->lists('first_name', 'id');
         return Employee::where('status_id', '=', 2)->lists(DB::raw('concat(first_name," ",middle_name," ",last_name," ",maiden_name)'), 'id');
+    }
+
+    public function getFilterList($status,$title,$center)
+    {
+        return Employee::where('status_id', '=', $status)->get();
     }
 
     public function changeStatus($id)

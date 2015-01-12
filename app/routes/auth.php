@@ -15,6 +15,10 @@ Route::get('employee/{id}', ['as' => 'show_employee', 'uses' => 'EmployeesContro
 Route::get('employee/update/{id}', ['as' => 'update_employee', 'uses' => 'EmployeesController@update']);
 Route::put('employee/update/{id}', ['as' => 'save_update_employee', 'uses' => 'EmployeesController@saveUpdate']);
 
+
+Route::get('report/', ['as' => 'report', 'uses' => 'EmployeesController@filterReport']);
+Route::get('report/', ['as' => 'report_search', 'uses' => 'EmployeesController@filterReportSearch']);
+
 Route::get('employee/changes/{id}', ['as' => 'changes', 'uses' => 'ChangesController@show']);
 
 Route::get('employee/change/register/{id}', ['as' => 'new_change', 'uses' => 'ChangesController@create']);
