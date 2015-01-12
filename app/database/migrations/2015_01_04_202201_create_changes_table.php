@@ -27,6 +27,7 @@ class CreateChangesTable extends Migration {
 			$table->foreign('title_id')->references('id')->on('titles');
 			$table->foreign('center_id')->references('id')->on('centers');
 			$table->foreign('supervisor_id')->references('id')->on('employees');		
+			$table->boolean('current')->default(0);	
 			
 			$table->timestamps();
 		});

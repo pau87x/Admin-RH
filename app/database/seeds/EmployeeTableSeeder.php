@@ -20,7 +20,7 @@ class EmployeeTableSeeder extends Seeder {
 
             $email = $faker->email;
             
-            $fullName = $firstName . ' ' . $middleName . ' ' . $thirdName  . ' ' . $lastName . ' ' . $maidenName;
+            $fullName = $firstName . ' ' . $middleName . ' ' . $lastName . ' ' . $maidenName;
 
             $user = User::create([
                'full_name' => $fullName,
@@ -35,7 +35,6 @@ class EmployeeTableSeeder extends Seeder {
                 
                 'first_name'  => $firstName,
                 'middle_name' => $middleName,
-                'third_name'  => $thirdName,
                 'last_name'   => $lastName,
                 'maiden_name' => $maidenName,
 

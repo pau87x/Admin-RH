@@ -10,7 +10,8 @@ class ChangeManager extends BaseManager {
             'title_id' => 'required|exists:titles,id',
             'center_id'    => 'required|exists:centers,id',
             'supervisor_id' => 'required|exists:employees,id',
-            'salary'   => 'required|numeric|min:0'
+            'salary'   => 'required|numeric|min:0',
+            'current'   => 'required|boolean'
         ];
 
         return $rules;

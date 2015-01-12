@@ -2,7 +2,7 @@
 
 class Change extends \Eloquent {
 
-    protected $fillable = ['employee_id', 'date', 'title_id', 'center_id','supervisor_id','salary'];
+    protected $fillable = ['employee_id', 'date', 'title_id', 'center_id','supervisor_id','salary','current'];
 
     protected $perPage = 20;
 
