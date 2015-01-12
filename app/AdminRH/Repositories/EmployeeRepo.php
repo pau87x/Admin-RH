@@ -31,6 +31,11 @@ class EmployeeRepo extends BaseRepo {
         return Employee::where('status_id', '=', 2)->lists(DB::raw('concat(first_name," ",middle_name," ",last_name," ",maiden_name)'), 'id');
     }
 
+    public function changeStatus($id)
+    {
+        return Employee::where('id', $id)->update(array('status_id' => 1));
+    }
+
     public function getActive()
     {
         return Employee::where('status_id', '=', 2)->get();

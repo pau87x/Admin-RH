@@ -34,14 +34,17 @@ class LayoffsController extends BaseController {
     {
         $employee = $this->employeeRepo->find($id);
 
-        // dd($employee);
+        $id = $employee['id'];
+
+        $change = $this->employeeRepo->changeStatus($id);
 
         $layoff = $this->layoffRepo->newLayoff();
 
-        Input::merge(array('employee_id' => 1)); //checar_bug
+        Input::merge(array('employee_id' => $id));
 
         $manager = new LayoffManager($layoff, Input::all());
         $manager->save();
+
 
         return Redirect::route('employees');
     }
