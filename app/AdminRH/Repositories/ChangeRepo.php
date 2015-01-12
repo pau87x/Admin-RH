@@ -23,6 +23,12 @@ class ChangeRepo extends BaseRepo {
         return Change::where('employee_id', $id)->get();
     }
 
+    public function updateChanges($id)
+    {
+        return Change::where('employee_id', $id)->update(array('current' => 0));
+    }
+
+
     public function getIsSupervisor($id)
     {
         return Change::where('supervisor_id', $id)->count();

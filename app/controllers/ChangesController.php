@@ -47,16 +47,21 @@ class ChangesController extends BaseController {
     {
         $employee = $this->employeeRepo->find($id);
 
-        // dd($employee);
+        $id = $employee['id'];
 
+        $changes = $this->changeRepo->updateChanges($id);
+
+        $current = 1;
         $change = $this->changeRepo->newChange();
 
-        Input::merge(array('employee_id' => 1)); //checar_bug
+        Input::merge(array('employee_id' => $id)); 
+        Input::merge(array('current' => $current));
+
 
         $manager = new ChangeManager($change, Input::all());
         $manager->save();
 
-        return Redirect::route('changes', $employee->id);
+        return Redirect::route('changes', $id);
     }
 
     // public function update($id)
