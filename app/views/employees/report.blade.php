@@ -6,11 +6,15 @@
 
             {{ Form::open(['route' => 'report_search', 'method' => 'GET', 'role' => 'form', 'novalidate']) }}
 
+            {{ Field::select('status', $status) }}
+
             {{ Field::select('center', $centers) }}
 
             {{ Field::select('title', $titles) }}
 
-            {{ Field::select('status', $status) }}
+            {{ Field::select('supervisor', $supervisors) }}
+
+
             
             <p>
                 <input type="submit" value="Buscar" class="btn btn-success">

@@ -33,7 +33,6 @@ class EmployeesController extends BaseController {
     {
         //$employees = $this->employeeRepo->getList();
         $employees = $this->employeeRepo->getListPaginate();
-       // dd($employees);
 
         return View::make('employees/show', compact('employees'));
     }
@@ -95,8 +94,10 @@ class EmployeesController extends BaseController {
         $status  = \Lang::get('utils.status');
         $titles  = $this->titleRepo->getList();
         $centers = $this->centerRepo->getList();
+        $supervisors  = $this->employeeRepo->getListSupervisors();
 
-        return View::make('employees/report', compact('status','titles','centers'));
+
+        return View::make('employees/report', compact('status','titles','centers','supervisors'));
        
     }
 
@@ -105,12 +106,17 @@ class EmployeesController extends BaseController {
         $status = Input::get('status');
         $center = Input::get('center');
         $title = Input::get('title');
+        $supervisor = Input::get('supervisor');
 
-        $employees = $this->employeeRepo->getFilterList($status,$title,$center);
+        $employees = $this->employeeRepo->getFilterList($status,$title,$center,$supervisor);
+
+       // dd($employees);
+
         return View::make('employees/show-report', compact('employees'));
     }
 
-    public function supervisorReport(){
+    public function supervisorReport()
+    {
 
         $supervisors  = $this->employeeRepo->getListSupervisors();
 

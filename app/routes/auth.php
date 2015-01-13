@@ -17,7 +17,7 @@ Route::put('employee/update/{id}', ['as' => 'save_update_employee', 'uses' => 'E
 
 
 Route::get('report/', ['as' => 'report', 'uses' => 'EmployeesController@filterReport']);
-Route::get('report/', ['as' => 'report_search', 'uses' => 'EmployeesController@filterReportSearch']);
+Route::get('filter-report/', ['as' => 'report_search', 'uses' => 'EmployeesController@filterReportSearch']);
 
 Route::get('employee/changes/{id}', ['as' => 'changes', 'uses' => 'ChangesController@show']);
 

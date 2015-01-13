@@ -147,6 +147,9 @@ return array(
         'name' => 'nombre',
         'reason' => 'motivo',
         'comments' => 'comentario',
+
+        'center' => 'centro',
+        'title' => 'puesto'
 	),
 
 );

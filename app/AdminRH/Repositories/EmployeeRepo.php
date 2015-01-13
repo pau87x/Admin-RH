@@ -29,9 +29,28 @@ class EmployeeRepo extends BaseRepo {
         return Employee::where('status_id', '=', 2)->lists(DB::raw('concat(first_name," ",middle_name," ",last_name," ",maiden_name)'), 'id');
     }
 
-    public function getFilterList($status,$title,$center)
+    public function getFilterList($status,$title,$center,$supervisor)
     {
-        return Employee::where('status_id', '=', $status)->get();
+
+        $employees = Employee::with('changes')->whereHas('changes', function($q) use ($status,$center,$title,$supervisor){
+
+            $q->where('current', '=', 1);
+
+            if($center!='')
+                $q->where('center_id', '=', $center);
+
+            if($title!='')
+                $q->where('title_id', '=', $title);
+
+            if($status!='')
+                $q->where('status_id', '=', $status);
+
+            if($supervisor!='')
+                $q->where('supervisor_id', '=', $supervisor);
+
+        })->get();
+        
+        return $employees;
     }
 
     public function changeStatus($id)
