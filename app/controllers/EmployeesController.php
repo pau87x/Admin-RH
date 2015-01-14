@@ -115,14 +115,20 @@ class EmployeesController extends BaseController {
         return View::make('employees/show-report', compact('employees'));
     }
 
-    public function supervisorReport()
+    public function delete($id)
     {
+        $employee = $this->employeeRepo->find($id);
 
-        $supervisors  = $this->employeeRepo->getListSupervisors();
-
-        return View::make('employees/report-supervisor', compact('supervisors'));
-       
+        return View::make('employees/delete', compact('employee'));
     }
 
+    public function ejecuteDelete($id)
+    {
+        $employee = $this->employeeRepo->find($id);
+
+        $employee->delete();
+
+        return Redirect::route('employees');
+    }
 
 } 
