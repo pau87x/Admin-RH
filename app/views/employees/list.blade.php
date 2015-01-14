@@ -11,7 +11,6 @@
         <th>Código</th>
         <th>Nombre Completo</th>
         <th>Puesto</th>
-        <th>Centro</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -21,7 +20,6 @@
         <td>{{ $employee->code }}</td>
         <td>@{{ $employee->full_name }}</td>
         <td> @{{ $employee->title }} </td>
-        <td> @{{ $employee->center }} </td>
         <td>
           @if ($employee->assistance === 'ok')
           <div class="pull-right">
