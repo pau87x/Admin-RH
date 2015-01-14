@@ -30,6 +30,11 @@ class Employee extends \Eloquent {
         return $this->hasMany('AdminRH\Entities\Change', 'employee_id');
     }
 
+    public function attendances()
+    {
+        return $this->hasMany('AdminRH\Entities\Attendance', 'employee_id');
+    }
+
     public function getLastChangeAttribute()
     {
         return $this->changes->sortBy('created_at')->last();

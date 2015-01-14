@@ -10,7 +10,7 @@
         
         {{ Form::open(['route' => array('ejecute_delete_employee', $employee->id), 'method' => 'delete', 'role' => 'form', 'novalidate']) }}
             <div class="modal-body">
-                Desea eliminar al usuario {{ $employee -> full_name }}?
+                Desea eliminar al usuario <strong>{{ $employee -> full_name }}</strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

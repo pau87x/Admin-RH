@@ -16,8 +16,6 @@ Route::get('employee/update/{id}', ['as' => 'update_employee', 'uses' => 'Employ
 Route::put('employee/update/{id}', ['as' => 'save_update_employee', 'uses' => 'EmployeesController@saveUpdate']);
 
 
-
-
 Route::get('employee/changes/{id}', ['as' => 'changes', 'uses' => 'ChangesController@show']);
 
 Route::get('employee/change/register/{id}', ['as' => 'new_change', 'uses' => 'ChangesController@create']);
@@ -26,12 +24,14 @@ Route::post('employee/change/register/{id}', ['as' => 'save_new_change', 'uses' 
 Route::get('employee/change/update/{id}/{id_change}', ['as' => 'update_change', 'uses' => 'ChangesController@update']);
 Route::put('employee/change/update/{id}/{id_change}', ['as' => 'save_update_change', 'uses' => 'ChangesController@saveUpdate']);
 
+
 Route::get('centers', ['as' => 'centers', 'uses' => 'CentersController@show']);
 Route::get('centers/register', ['as' => 'new_center', 'uses' => 'CentersController@create']);
 Route::post('centers/register', ['as' => 'save_new_center', 'uses' => 'CentersController@register']);
 
 Route::get('centers/update/{id}', ['as' => 'update_center', 'uses' => 'CentersController@update']);
 Route::put('centers/update/{id}', ['as' => 'save_update_center', 'uses' => 'CentersController@saveUpdate']);
+
 
 Route::get('titles', ['as' => 'titles', 'uses' => 'TitlesController@show']);
 Route::get('titles/register', ['as' => 'new_title', 'uses' => 'TitlesController@create']);
@@ -46,5 +46,8 @@ Route::post('laysoff/register/{id}', ['as' => 'save_new_layoff', 'uses' => 'Layo
 
 Route::get('report/', ['as' => 'report', 'uses' => 'EmployeesController@filterReport']);
 Route::get('filter-report/', ['as' => 'report_search', 'uses' => 'EmployeesController@filterReportSearch']);
+
+Route::get('list/', ['as' => 'list', 'uses' => 'AttendancesController@listAttendance']);
+Route::get('employee/attendance/{id}', ['as' => 'attendance', 'uses' => 'AttendancesController@register']);
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
