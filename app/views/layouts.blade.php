@@ -92,6 +92,7 @@
             <li><a href="{{ route('centers') }}">Centros de Servicio</a></li>
             <li><a href="{{ route('titles') }}">Puestos</a></li>
             <li><a href="{{ route('report') }}">Reporte</a></li>
+            <li><a href="{{ route('list') }}">Lista de Asistencia</a></li>
           </ul>
           <!--
           <ul class="nav nav-sidebar">

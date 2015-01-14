@@ -124,6 +124,7 @@ class EmployeesController extends BaseController {
 
     public function ejecuteDelete($id)
     {
+
         $employee = $this->employeeRepo->find($id);
 
         $employee->delete();

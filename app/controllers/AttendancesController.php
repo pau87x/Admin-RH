@@ -46,7 +46,21 @@ class AttendancesController extends BaseController {
         $manager = new AttendanceManager($attendance, Input::all());
         $manager->save();
 
-        return Redirect::route('list');
+        return route('delete_attendance',[$attendance->id,$employee_id]);
     }
+
+    public function delete($id,$employee_id)
+    {
+        $employee = $this->employeeRepo->find($employee_id);
+
+        $attendance = $this->attendanceRepo->find($id);
+
+        $attendance->delete();
+
+        //return Redirect::route('list');
+        return route('attendance', [$employee_id]);
+    }
+
+
 
 } 
