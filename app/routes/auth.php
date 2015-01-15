@@ -22,8 +22,8 @@ Route::get('employee/changes/{id}', ['as' => 'changes', 'uses' => 'ChangesContro
 Route::get('employee/change/register/{id}', ['as' => 'new_change', 'uses' => 'ChangesController@create']);
 Route::post('employee/change/register/{id}', ['as' => 'save_new_change', 'uses' => 'ChangesController@register']);
 
-// Route::get('employee/change/update/{id}/{id_change}', ['as' => 'update_change', 'uses' => 'ChangesController@update']);
-// Route::put('employee/change/update/{id}/{id_change}', ['as' => 'save_update_change', 'uses' => 'ChangesController@saveUpdate']);
+Route::get('employee/change/edit/{id}', ['as' => 'edit_change', 'uses' => 'ChangesController@edit']);
+Route::put('employee/change/update/{id}', ['as' => 'update_change', 'uses' => 'ChangesController@update']);
 
 
 

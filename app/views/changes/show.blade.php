@@ -26,7 +26,7 @@
         <td>{{ $change->center->name }}</td>
         <td>{{ $change->supervisor->first_name}}</td>
         <td>{{ $change->salary }}</td>
-        <td><a class="btn btn-success" href="{{ route('update_change', [$employee->id]) }}" role="button">Editar Cambio</a>
+        <td><a class="btn btn-success" href="{{ route('edit_change', [$change->id]) }}" role="button">Editar Cambio</a>
           <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
       </tr>
       @endforeach

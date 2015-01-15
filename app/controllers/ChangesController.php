@@ -64,28 +64,36 @@ class ChangesController extends BaseController {
         return Redirect::route('changes', $id);
     }
 
-    // public function update($id)
-    // {
-    //     $employee = $this->employeeRepo->find($id);
+    public function edit($id)
+    {
+        $change = $this->changeRepo->find($id);
 
-    //     $this->notFoundUnless($employee);
+        $this->notFoundUnless($change);
 
-    //     $birthdate = str_replace("/","-",$employee->birthdate);
-    //     $employee->birthdate = date("d/m/Y", strtotime($birthdate));
+        //$employee     = $this->employeeRepo->find($id);
+        $titles       = $this->titleRepo->getList();
+        $centers      = $this->centerRepo->getList();
+        $supervisors  = $this->employeeRepo->getListSupervisors();
 
-    //     $genres  = \Lang::get('utils.genre');
-    //     $states  = $this->stateRepo->getList();
-    //     return View::make('employees/edit', compact('employee','genres','states'));
-    // }
+        $date = str_replace("/","-",$change->date);
+        $change->date = date("d/m/Y", strtotime($date));
 
-    // public function saveUpdate($id)
-    // {
-    //     $employee = $this->employeeRepo->find($id);
-    //     $manager = new EmployeeManager($employee, Input::all());
+        return View::make('changes/edit', compact('change','titles','centers','supervisors'));
+    }
 
-    //     $manager->save();
+    public function update($id)
+    {
+        $change = $this->changeRepo->find($id);
 
-    //     return Redirect::route('employees');
-    // }
+        Input::merge(array('employee_id' => $change->employee_id)); 
+        Input::merge(array('current' => $change->current));
+
+        $manager = new ChangeManager($change, Input::all());
+
+
+        $manager->save();
+
+        return Redirect::route('employees');
+    }
 
 } 

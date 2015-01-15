@@ -23,9 +23,9 @@
         <td>
           <div id="navigation">
             @if ($employee->assistance)
-              <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck" id="{{$employee->id}}uncheck" href="" role="button"> Asistió</a>
+              <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck" id="{{$employee->id}}uncheck" href="" role="button"></a>
             @else
-              <a class="btn btn-default glyphicon glyphicon-unchecked ajax-check" id="{{$employee->id}}check" href="" role="button"> Marcar</a>
+              <a class="btn btn-default glyphicon glyphicon-unchecked ajax-check" id="{{$employee->id}}check" href="" role="button"></a>
             @endif
           </div>
         </td>
@@ -37,7 +37,6 @@
   <div class="text-center">
       @{{ $employees->links() }}
   </div>
-
 </div>
 
 @stop
