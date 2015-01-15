@@ -61,6 +61,33 @@ class AttendancesController extends BaseController {
         return route('attendance', [$employee_id]);
     }
 
+    public function listReport()
+    {
+
+        // $status  = \Lang::get('utils.status');
+        // $titles  = $this->titleRepo->getList();
+        // $centers = $this->centerRepo->getList();
+        // $supervisors  = $this->employeeRepo->getListSupervisors();
+
+
+        return View::make('attendance/report-list');
+       
+    }
+
+    public function listReportSearch()
+    {
+        // $status = Input::get('status');
+        // $center = Input::get('center');
+        // $title = Input::get('title');
+        // $supervisor = Input::get('supervisor');
+        $latin_date = Input::get('date');
+        $date = str_replace("/","-",$latin_date);
+        $date = date("Y/m/d", strtotime($date));
+
+        $employees = $this->attendanceRepo->getAttendances($date);
+
+        return View::make('attendance/show-report-list', compact('employees','latin_date'));
+    }
 
 
 } 

@@ -58,6 +58,9 @@ Route::get('list/', ['as' => 'list', 'uses' => 'AttendancesController@listAttend
 Route::get('attendance/{id}', ['as' => 'attendance', 'uses' => 'AttendancesController@register']);
 Route::get('attendance/delete/{id}/{employee_id}', ['as' => 'delete_attendance', 'uses' => 'AttendancesController@delete']);
 
+Route::get('lista/', ['as' => 'report_list', 'uses' => 'AttendancesController@listReport']);
+Route::get('filter-report/list', ['as' => 'report_list_search', 'uses' => 'AttendancesController@listReportSearch']);
+
 
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
