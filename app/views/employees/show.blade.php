@@ -65,18 +65,4 @@
   </div>
 
 </div>
-<div class="modal fade" id="modal-dialog" role="dialog" data-backdrop="static" data-keyboard="false"></div>
-
-@stop
-
-@section('extra-js')
-<script type="text/javascript">
-$(document).on('click', 'a.ajax-modal-dialog', function(e) {
-    e.preventDefault();
-    console.log("clicked");
-    url = $(this).attr('href');
-    $('#modal-dialog').load(url);
-    $('#modal-dialog').modal('show');
-});
-</script>
 @stop
