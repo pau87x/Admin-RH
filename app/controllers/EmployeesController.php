@@ -122,7 +122,7 @@ class EmployeesController extends BaseController {
         return View::make('employees/delete', compact('employee'));
     }
 
-    public function ejecuteDelete($id)
+    public function destroy($id)
     {
 
         $employee = $this->employeeRepo->find($id);

@@ -7,4 +7,4 @@ Route::get('admin/candidate/{id}', ['as' => 'admin_candidate_edit', function ($i
 }]);
 
 Route::get('employee/delete/{id}', ['as' => 'delete_employee', 'uses' => 'EmployeesController@delete']);
-Route::delete('employee/deleting/{id}', ['as' => 'ejecute_delete_employee', 'uses' => 'EmployeesController@ejecuteDelete']);
+Route::delete('employee/deleting/{id}', ['as' => 'destroy_employee', 'uses' => 'EmployeesController@destroy']);
