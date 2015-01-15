@@ -8,9 +8,9 @@
             <h4 class="modal-title">Eliminar Usuario</h4>
         </div>
         
-        {{ Form::open(['route' => array('ejecute_delete_employee', $employee->id), 'method' => 'delete', 'role' => 'form', 'novalidate']) }}
+        {{ Form::open(['route' => array('destroy_employee', $employee->id), 'method' => 'delete', 'role' => 'form', 'novalidate']) }}
             <div class="modal-body">
-                Desea eliminar al usuario <strong>{{ $employee -> full_name }}</strong>?
+                ¿ Desea eliminar al usuario <strong>{{ $employee -> full_name }}</strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -24,19 +24,5 @@
 
 @section('extra-js')
 <script>
-    $(document).ready(function() {
-        var CSRF_TOKEN = "@{{ csrf_token }}";
-        $('select.select2').select2();
-
-        $('.route-form').validate({
-            ignore: [],
-            highlight: function(element) {
-                $(element).parents('.form-group').addClass("has-error");
-            },
-            unhighlight: function(element) {
-                console.log($(element));
-                $(element).parents('.form-group').removeClass("has-error");
-            }
-        });
 </script>
 @endsection

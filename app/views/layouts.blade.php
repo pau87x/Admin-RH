@@ -108,7 +108,7 @@
             <li><a href="">Another nav item</a></li>
           </ul> -->
         </div>
-
+        <div class="modal fade" id="modal-dialog" role="dialog" data-backdrop="static" data-keyboard="false"></div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
          @yield('content')
        </div>
@@ -122,6 +122,15 @@
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+    $(document).on('click', 'a.ajax-modal-dialog', function(e) {
+        e.preventDefault();
+        console.log("clicked");
+        url = $(this).attr('href');
+        $('#modal-dialog').load(url);
+        $('#modal-dialog').modal('show');
+    });
+    </script>
     @yield('extra-js')
   </body>
 </html>
