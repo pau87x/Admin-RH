@@ -21,17 +21,15 @@
 <!--         <td>@{{ $employee->full_name }}</td>
         <td> @{{ $employee->title }} </td> -->
         <td>
-          {{ $employee->assistance }}  
-          <!--- route('delete_attendance', [$employee->id,$employee->assistance]) }} -->
-          @if ($employee->assistance)
-          <div class="pull-right">
-            <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck" href="{{ route('delete_attendance',[$employee->assistance,$employee->id]) }}" role="button"> Asistió</a>
+          <div id="navigation">
+            @if ($employee->assistance)
+              <a class="btn btn-default glyphicon glyphicon-unchecked ajax-check hide" id="{{$employee->id}}check" href="" role="button"> Marcar</a>
+              <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck" id="{{$employee->id}}uncheck" href="{{ route('delete_attendance',[$employee->assistance,$employee->id]) }}" role="button"> Asistió</a>
+            @else
+              <a class="btn btn-default glyphicon glyphicon-unchecked ajax-check" id="{{$employee->id}}check" href="{{ route('attendance', [$employee->id]) }}" role="button"> Marcar</a>
+              <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck hide" id="{{$employee->id}}check" href="" role="button"> Asistió</a>
+            @endif
           </div>
-          @else
-          <div class="pull-right">
-            <a class="btn btn-default glyphicon glyphicon-unchecked ajax-check" href="{{ route('attendance', [$employee->id]) }}" role="button"> Marcar</a>
-          </div>
-          @endif
         </td>
 
       </tr>
@@ -57,15 +55,11 @@ $(".ajax-check").click (function () {
     url: href,
     success: function(data){
          console.log($(link));
-         $(link).removeClass('btn-default');
-         $(link).addClass('btn-success');
-         $(link).text(' Asistió');
-         $(link).removeClass('glyphicon-unchecked');
-         $(link).addClass('glyphicon-ok');
-         $(link).attr("href", data);
-         $(link).removeClass('ajax-check');
-         $(link).addClass('ajax-uncheck');
-         //console.log(data);
+         var id = $(link).attr('id');
+         var i =  parseInt(id);
+         $('#'+i+'uncheck').attr('href', data);
+         $('#'+i+'uncheck').removeClass('hide');
+         $(link).toggleClass('hide');
     }
   });
   return false;
@@ -79,15 +73,12 @@ $(".ajax-uncheck").click (function () {
     type: "GET",
     url: href,
     success: function(data){
-         $(link).removeClass('btn-success');
-         $(link).addClass('btn-default');
-         $(link).text(' Marcar');
-         $(link).addClass('glyphicon-unchecked');
-         $(link).removeClass('glyphicon-ok');
-         $(link).attr("href", data);
-         $(link).addClass('ajax-check');
-         $(link).removeClass('ajax-uncheck');
-         //console.log(data);
+         console.log($(link));
+         var id = $(link).attr('id');
+         var i =  parseInt(id);
+         $('#'+i+'check').attr('href', data);
+         $('#'+i+'check').removeClass('hide');
+         $(link).toggleClass('hide');
     }
   });
   return false;
