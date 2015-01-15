@@ -27,7 +27,7 @@
               <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck" id="{{$employee->id}}uncheck" href="{{ route('delete_attendance',[$employee->assistance,$employee->id]) }}" role="button"> Asistió</a>
             @else
               <a class="btn btn-default glyphicon glyphicon-unchecked ajax-check" id="{{$employee->id}}check" href="{{ route('attendance', [$employee->id]) }}" role="button"> Marcar</a>
-              <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck hide" id="{{$employee->id}}check" href="" role="button"> Asistió</a>
+              <a class="btn btn-success glyphicon glyphicon-ok ajax-uncheck hide" id="{{$employee->id}}uncheck" href="" role="button"> Asistió</a>
             @endif
           </div>
         </td>
