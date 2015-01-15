@@ -27,7 +27,6 @@ class CentersController extends BaseController {
 
     public function register()
     {
-        //dd(Input::all());
         $center = $this->centerRepo->newCenter();
         $manager = new CenterManager($center, Input::all());
         $manager->save();
@@ -35,7 +34,7 @@ class CentersController extends BaseController {
         return Redirect::route('centers');
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $center = $this->centerRepo->find($id);
 
@@ -44,7 +43,7 @@ class CentersController extends BaseController {
         return View::make('centers/edit', compact('center'));
     }
 
-    public function saveUpdate($id)
+    public function update($id)
     {
         $center = $this->centerRepo->find($id);
         $manager = new CenterManager($center, Input::all());

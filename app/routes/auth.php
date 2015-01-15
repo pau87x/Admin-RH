@@ -12,10 +12,10 @@ Route::post('employee/register', ['as' => 'save_new_employee', 'uses' => 'Employ
 
 Route::get('employee/{id}', ['as' => 'show_employee', 'uses' => 'EmployeesController@showEmployee']);
 
-Route::get('employee/update/{id}', ['as' => 'update_employee', 'uses' => 'EmployeesController@update']);
-Route::put('employee/update/{id}', ['as' => 'save_update_employee', 'uses' => 'EmployeesController@saveUpdate']);
+Route::get('employee/update/{id}', ['as' => 'edit_employee', 'uses' => 'EmployeesController@edit']);
+Route::put('employee/update/{id}', ['as' => 'update_employee', 'uses' => 'EmployeesController@update']);
 
-
+//delete_employee -> admin.php
 
 Route::get('employee/changes/{id}', ['as' => 'changes', 'uses' => 'ChangesController@show']);
 
@@ -25,6 +25,9 @@ Route::post('employee/change/register/{id}', ['as' => 'save_new_change', 'uses' 
 Route::get('employee/change/edit/{id}', ['as' => 'edit_change', 'uses' => 'ChangesController@edit']);
 Route::put('employee/change/update/{id}', ['as' => 'update_change', 'uses' => 'ChangesController@update']);
 
+Route::get('employee/change/delete/{id}', ['as' => 'delete_change', 'uses' => 'ChangesController@delete']);
+Route::delete('employee/change/destroy/{id}', ['as' => 'destroy_change', 'uses' => 'ChangesController@destroy']);
+
 
 
 Route::get('centers', ['as' => 'centers', 'uses' => 'CentersController@show']);
@@ -32,8 +35,8 @@ Route::get('centers', ['as' => 'centers', 'uses' => 'CentersController@show']);
 Route::get('centers/register', ['as' => 'new_center', 'uses' => 'CentersController@create']);
 Route::post('centers/register', ['as' => 'save_new_center', 'uses' => 'CentersController@register']);
 
-Route::get('centers/update/{id}', ['as' => 'update_center', 'uses' => 'CentersController@update']);
-Route::put('centers/update/{id}', ['as' => 'save_update_center', 'uses' => 'CentersController@saveUpdate']);
+Route::get('centers/update/{id}', ['as' => 'edit_center', 'uses' => 'CentersController@edit']);
+Route::put('centers/update/{id}', ['as' => 'update_center', 'uses' => 'CentersController@update']);
 
 
 
@@ -41,8 +44,11 @@ Route::get('titles', ['as' => 'titles', 'uses' => 'TitlesController@show']);
 Route::get('titles/register', ['as' => 'new_title', 'uses' => 'TitlesController@create']);
 Route::post('titles/register', ['as' => 'save_new_title', 'uses' => 'TitlesController@register']);
 
-Route::get('titles/update/{id}', ['as' => 'update_title', 'uses' => 'TitlesController@update']);
-Route::put('titles/update/{id}', ['as' => 'save_update_title', 'uses' => 'TitlesController@saveUpdate']);
+Route::get('titles/update/{id}', ['as' => 'edit_title', 'uses' => 'TitlesController@edit']);
+Route::put('titles/update/{id}', ['as' => 'update_title', 'uses' => 'TitlesController@update']);
+
+
+
 
 Route::get('laysoff/register/{id}', ['as' => 'layoff', 'uses' => 'LayoffsController@create']);
 Route::post('laysoff/register/{id}', ['as' => 'save_new_layoff', 'uses' => 'LayoffsController@register']);

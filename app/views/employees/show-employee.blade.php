@@ -32,7 +32,7 @@
         {{ $employee->ss_number }}
 
         <p>
-          <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button">Editar</a>
+          <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_employee', [$employee->id]) }}" role="button">Editar</a>
           @if ($employee->status_id !== 1)
           <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button">Cambiar Puesto</a>
           <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ route('layoff', [$employee->id]) }}" role="button">Dar baja</a> 

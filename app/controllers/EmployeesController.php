@@ -1,13 +1,10 @@
 <?php
 
-//use AdminRH\Managers\RegisterManager;
 use AdminRH\Repositories\EmployeeRepo;
 use AdminRH\Repositories\CityRepo;
 use AdminRH\Repositories\StateRepo;
 use AdminRH\Repositories\TitleRepo;
 use AdminRH\Repositories\CenterRepo;
-// use AdminRH\Managers\AccountManager;
-// use AdminRH\Managers\ProfileManager;
 use AdminRH\Managers\EmployeeManager;
 
 class EmployeesController extends BaseController {
@@ -23,10 +20,10 @@ class EmployeesController extends BaseController {
                                 CenterRepo $centerRepo)
     {
         $this->employeeRepo = $employeeRepo;
-        $this->cityRepo = $cityRepo;
-        $this->stateRepo = $stateRepo;
-        $this->titleRepo = $titleRepo;
-        $this->centerRepo = $centerRepo;
+        $this->cityRepo     = $cityRepo;
+        $this->stateRepo    = $stateRepo;
+        $this->titleRepo    = $titleRepo;
+        $this->centerRepo   = $centerRepo;
     }
 
     public function show()
@@ -54,15 +51,15 @@ class EmployeesController extends BaseController {
 
     public function register()
     {
-        //dd(Input::all());
         $employee = $this->employeeRepo->newEmployee();
-        $manager = new EmployeeManager($employee, Input::all());
+        $manager  = new EmployeeManager($employee, Input::all());
+        
         $manager->save();
 
         return Redirect::route('employees');
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $employee = $this->employeeRepo->find($id);
 
@@ -77,12 +74,29 @@ class EmployeesController extends BaseController {
         return View::make('employees/edit', compact('employee','genres','states'));
     }
 
-    public function saveUpdate($id)
+    public function update($id)
     {
         $employee = $this->employeeRepo->find($id);
-        $manager = new EmployeeManager($employee, Input::all());
+        $manager  = new EmployeeManager($employee, Input::all());
 
         $manager->save();
+
+        return Redirect::route('employees');
+    }
+
+    public function delete($id)
+    {
+        $employee = $this->employeeRepo->find($id);
+
+        return View::make('employees/delete', compact('employee'));
+    }
+
+    public function destroy($id)
+    {
+
+        $employee = $this->employeeRepo->find($id);
+
+        $employee->delete();
 
         return Redirect::route('employees');
     }
@@ -103,33 +117,16 @@ class EmployeesController extends BaseController {
 
     public function filterReportSearch()
     {
-        $status = Input::get('status');
-        $center = Input::get('center');
-        $title = Input::get('title');
+        $status     = Input::get('status');
+        $center     = Input::get('center');
+        $title      = Input::get('title');
         $supervisor = Input::get('supervisor');
 
         $employees = $this->employeeRepo->getFilterList($status,$title,$center,$supervisor);
 
-       // dd($employees);
-
         return View::make('employees/show-report', compact('employees'));
     }
 
-    public function delete($id)
-    {
-        $employee = $this->employeeRepo->find($id);
 
-        return View::make('employees/delete', compact('employee'));
-    }
-
-    public function destroy($id)
-    {
-
-        $employee = $this->employeeRepo->find($id);
-
-        $employee->delete();
-
-        return Redirect::route('employees');
-    }
 
 } 

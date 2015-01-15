@@ -19,7 +19,7 @@
       <tr>
         <td>{{ $center->id }}</td>
         <td>{{ $center->name }}</td>
-        <td><a class="btn btn-success" href="{{ route('update_center', [$center->id]) }}" role="button">Editar</a>
+        <td><a class="btn btn-success" href="{{ route('edit_center', [$center->id]) }}" role="button">Editar</a>
           <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
       </tr>
       @endforeach

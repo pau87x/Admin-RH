@@ -27,7 +27,7 @@
         <td>{{ $change->supervisor->full_name}}</td>
         <td>{{ $change->salary }}</td>
         <td><a class="btn btn-success" href="{{ route('edit_change', [$change->id]) }}" role="button">Editar Cambio</a>
-          <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
+          <a class="btn btn-danger ajax-modal-dialog" href="{{ route('delete_change', [$change->id]) }}" role="button">Eliminar</a></td>
       </tr>
       @endforeach
     </tbody>

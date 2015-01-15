@@ -1,6 +1,5 @@
 <?php
 
-use AdminRH\Managers\RegisterManager;
 use AdminRH\Repositories\EmployeeRepo;
 use AdminRH\Repositories\LayoffRepo;
 use AdminRH\Repositories\ChangeRepo;
@@ -24,20 +23,21 @@ class LayoffsController extends BaseController {
     {
         $employee = $this->employeeRepo->find($id);
         $personal = $this->changeRepo->getIsSupervisor($id);
+
         $job = 1;
+
         if($employee->title=='-')
             $job = 0;
+
         return View::make('layoffs/new', compact('employee','personal','job'));
     }
 
     public function register($id)
     {
         $employee = $this->employeeRepo->find($id);
-
-        $id = $employee['id'];
+        $id       = $employee['id'];
 
         $change = $this->employeeRepo->changeStatus($id);
-
         $layoff = $this->layoffRepo->newLayoff();
 
         Input::merge(array('employee_id' => $id));

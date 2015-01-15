@@ -27,7 +27,6 @@ class TitlesController extends BaseController {
 
     public function register()
     {
-        //dd(Input::all());
         $title = $this->titleRepo->newTitle();
         $manager = new TitleManager($title, Input::all());
         $manager->save();
@@ -35,7 +34,7 @@ class TitlesController extends BaseController {
         return Redirect::route('titles');
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $title = $this->titleRepo->find($id);
 
@@ -44,7 +43,7 @@ class TitlesController extends BaseController {
         return View::make('titles/edit', compact('title'));
     }
 
-    public function saveUpdate($id)
+    public function update($id)
     {
         $title = $this->titleRepo->find($id);
         $manager = new TitleManager($title, Input::all());

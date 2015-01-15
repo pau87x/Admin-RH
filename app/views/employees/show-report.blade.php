@@ -3,6 +3,10 @@
 @section('content')
 
 <h1 class="page-header">Personal</h1>
+<div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Solo se muestra el personal con puesto asignado.
+</div>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -34,7 +38,7 @@
         <td>
           <div class="pull-right">
             <a class="btn btn-default glyphicon glyphicon-eye-open" href="{{ route('show_employee', [$employee->id]) }}" role="button"></a>
-            <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('update_employee', [$employee->id]) }}" role="button"></a>
+            <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_employee', [$employee->id]) }}" role="button"></a>
             <a class="btn btn-primary glyphicon glyphicon-chevron-up" href="{{ route('changes', [$employee->id]) }}" role="button"></a>
             <a class="btn btn-danger glyphicon glyphicon-chevron-down" href="{{ route('layoff', [$employee->id]) }}" role="button"></a> 
             @if (is_admin())

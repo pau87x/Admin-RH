@@ -20,15 +20,15 @@ class ChangesController extends BaseController {
                                 CenterRepo $centerRepo)
     {
         $this->employeeRepo = $employeeRepo;
-        $this->changeRepo = $changeRepo;
-        $this->titleRepo = $titleRepo;
-        $this->centerRepo = $centerRepo;
+        $this->changeRepo   = $changeRepo;
+        $this->titleRepo    = $titleRepo;
+        $this->centerRepo   = $centerRepo;
     }
 
     public function show($id)
     {
         $employee = $this->employeeRepo->find($id);
-        $changes = $this->changeRepo->getChanges($id);
+        $changes  = $this->changeRepo->getChanges($id);
 
         return View::make('changes/show', compact('employee','changes'));
     }
@@ -46,8 +46,7 @@ class ChangesController extends BaseController {
     public function register($id)
     {
         $employee = $this->employeeRepo->find($id);
-
-        $id = $employee['id'];
+        $id       = $employee['id'];
 
         $changes = $this->changeRepo->updateChanges($id);
 
@@ -70,7 +69,6 @@ class ChangesController extends BaseController {
 
         $this->notFoundUnless($change);
 
-        //$employee     = $this->employeeRepo->find($id);
         $titles       = $this->titleRepo->getList();
         $centers      = $this->centerRepo->getList();
         $supervisors  = $this->employeeRepo->getListSupervisors();
@@ -83,17 +81,44 @@ class ChangesController extends BaseController {
 
     public function update($id)
     {
-        $change = $this->changeRepo->find($id);
+        $change      = $this->changeRepo->find($id);
+        $employee_id = $change->employee_id;
 
         Input::merge(array('employee_id' => $change->employee_id)); 
         Input::merge(array('current' => $change->current));
 
         $manager = new ChangeManager($change, Input::all());
 
-
         $manager->save();
 
-        return Redirect::route('employees');
+        return Redirect::route('changes', $employee_id);
+    }
+
+    public function delete($id)
+    {
+        $change = $this->changeRepo->find($id);
+
+        return View::make('changes/delete', compact('change'));
+    }
+
+    public function destroy($id)
+    {
+
+        $change      = $this->changeRepo->find($id);
+        $current     = $change->current;
+        $employee_id = $change->employee_id;
+
+        $change->delete();
+
+        if($current == 1)
+        {
+            if($last_change = $this->changeRepo->getChanges($employee_id)->last()){
+                $last_change->current = 1;
+                $last_change->save();
+            }
+        }
+
+        return Redirect::route('changes', $employee_id);
     }
 
 } 

@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <h1>Editar Centro</h1>
 
-            {{ Form::model($center, ['route' => array('save_update_center', $center->id), 'method' => 'PUT', 'role' => 'form', 'novalidate']) }}
+            {{ Form::model($center, ['route' => array('update_center', $center->id), 'method' => 'PUT', 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('name') }}
 

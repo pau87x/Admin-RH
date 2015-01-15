@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <h1>Editar Empleado</h1>
 
-            {{ Form::model($employee, ['route' => array('save_update_employee', $employee->id), 'method' => 'PUT', 'role' => 'form', 'novalidate']) }}
+            {{ Form::model($employee, ['route' => array('update_employee', $employee->id), 'method' => 'PUT', 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('code') }}
 

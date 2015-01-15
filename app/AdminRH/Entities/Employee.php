@@ -47,7 +47,6 @@ class Employee extends \Eloquent {
         else
             $title = '-';
 
-
         return $title;
     }
 
@@ -57,7 +56,6 @@ class Employee extends \Eloquent {
             $center = $this->last_change->center->name;
         else
             $center = '-';
-
 
         return $center;
     }
