@@ -94,8 +94,9 @@
             <li><a href="{{ route('employees') }}">Empleados</a></li>
             <li><a href="{{ route('centers') }}">Centros de Servicio</a></li>
             <li><a href="{{ route('titles') }}">Puestos</a></li>
-            <li><a href="{{ route('report') }}">Reporte</a></li>
+            <li><a href="{{ route('report') }}">Reporte de Empleados</a></li>
             <li><a href="{{ route('list') }}">Lista de Asistencia</a></li>
+            <li><a href="{{ route('report_list') }}">Reporte de asistencia</a></li>
           </ul>
           <!--
           <ul class="nav nav-sidebar">

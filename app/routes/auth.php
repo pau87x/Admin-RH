@@ -62,6 +62,9 @@ Route::put('titles/update/{id}', ['as' => 'update_title', 'uses' => 'TitlesContr
 Route::get('laysoff/register/{id}', ['as' => 'layoff', 'uses' => 'LayoffsController@create']);
 Route::post('laysoff/register/{id}', ['as' => 'save_new_layoff', 'uses' => 'LayoffsController@register']);
 
+Route::get('laysoff/delete/{id}', ['as' => 'delete_layoff', 'uses' => 'LayoffsController@delete']);
+Route::delete('laysoff/destroy/{id}', ['as' => 'destroy_layoff', 'uses' => 'LayoffsController@destroy']);
+
 
 
 Route::get('report/', ['as' => 'report', 'uses' => 'EmployeesController@filterReport']);
@@ -73,7 +76,7 @@ Route::get('list/', ['as' => 'list', 'uses' => 'AttendancesController@listAttend
 Route::get('attendance/{id}', ['as' => 'attendance', 'uses' => 'AttendancesController@register']);
 Route::get('attendance/delete/{id}/{employee_id}', ['as' => 'delete_attendance', 'uses' => 'AttendancesController@delete']);
 
-Route::get('lista/', ['as' => 'report_list', 'uses' => 'AttendancesController@listReport']);
+Route::get('attendances/', ['as' => 'report_list', 'uses' => 'AttendancesController@listReport']);
 Route::get('filter-report/list', ['as' => 'report_list_search', 'uses' => 'AttendancesController@listReportSearch']);
 
 

@@ -16,7 +16,7 @@ class LayoffsController extends BaseController {
     {
         $this->layoffRepo   = $layoffRepo;
         $this->employeeRepo = $employeeRepo;
-        $this->changeRepo = $changeRepo;
+        $this->changeRepo   = $changeRepo;
     }
 
     public function create($id)
@@ -47,6 +47,33 @@ class LayoffsController extends BaseController {
 
 
         return Redirect::route('employees');
+    }
+
+    public function delete($id)
+    {
+        $employee = $this->employeeRepo->find($id);
+
+        return View::make('layoffs/delete', compact('employee'));
+    }
+
+    public function destroy($id)
+    {
+
+        $employee  = $this->employeeRepo->find($id);
+
+        if($layoffs = $this->layoffRepo->getLayoffs($id)->last()){
+            $layoffs->delete();
+            $employee->status_id = 2;
+            $employee->save();
+
+            if($last_change = $this->changeRepo->getChanges($id)->last()){
+                $last_change->current = 1;
+                $last_change->save();
+            }
+
+        }
+
+        return Redirect::route('edit_employee', $employee->id);
     }
 
 } 

@@ -12,14 +12,19 @@
             <h1>Dar Baja</h1>
 
 
-            @if ($job == 0)
+            @if ($employee->status_id == 1)
             <div class="alert alert-danger" role="alert">
-              <span> Este empleado debe ser eliminado por el administrador</span>
+              <span> Este empleado ya está dado de baja.</span>
+            </div>
+
+            @elseif ($job == 0)
+            <div class="alert alert-danger" role="alert">
+              <span> Este empleado debe ser eliminado por el administrador.</span>
             </div>
 
             @elseif ($personal > 0)
             <div class="alert alert-danger" role="alert">
-              <span> Este empleado tiene personal a su cargo, no puede ser dado de baja</span>
+              <span> Este empleado tiene personal a su cargo, no puede ser dado de baja.</span>
             </div>
 
             @else

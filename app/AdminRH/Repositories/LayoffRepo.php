@@ -21,5 +21,10 @@ class LayoffRepo extends BaseRepo {
         $layoff = new Layoff();
         return $layoff;
     }
+    
+    public function getLayoffs($id)
+    {
+        return Layoff::where('employee_id', $id)->get();
+    }
 
 } 
