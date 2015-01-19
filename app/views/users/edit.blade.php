@@ -5,9 +5,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1>Nuevo Usuario</h1>
+            <h1>Editar usuario</h1>
 
-            {{ Form::open(['route' => 'register', 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
+            {{ Form::model($user, ['route' => array('update_user', $user->id), 'method' => 'PUT', 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('full_name') }}
 
@@ -18,7 +18,7 @@
             {{ Field::password('password_confirmation', ['placeholder' => 'Repite tu clave']) }}
 
             <p>
-                <input type="submit" value="Registrar" class="btn btn-success">
+                <input type="submit" value="Guardar" class="btn btn-success">
             </p>
 
             {{ Form::close() }}

@@ -88,6 +88,9 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+            @if (is_admin())
+               <li><a href="{{ route('users') }}">Usuarios</a></li>
+            @endif
             <li><a href="{{ route('employees') }}">Empleados</a></li>
             <li><a href="{{ route('centers') }}">Centros de Servicio</a></li>
             <li><a href="{{ route('titles') }}">Puestos</a></li>

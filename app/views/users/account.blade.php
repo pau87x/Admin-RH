@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts')
 
 @section('content')
 
@@ -18,7 +18,7 @@
             {{ Field::password('password_confirmation', ['placeholder' => 'Repite tu clave']) }}
 
             <p>
-                <input type="submit" value="Register" class="btn btn-success">
+                <input type="submit" value="Guardar" class="btn btn-success">
             </p>
 
             {{ Form::close() }}

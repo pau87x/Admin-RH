@@ -111,8 +111,8 @@ return array(
 	'attributes' => array(
 		'full_name' => 'nombre completo',
         'email'     => 'correo electrónico',
-        'password'  => 'clave',
-        'password_confirmation' => 'repita su clave',
+        'password'  => 'contraseña',
+        'password_confirmation' => 'repita su contraseña',
         'category_id' => 'Categoría',
 
         'code' => 'código',

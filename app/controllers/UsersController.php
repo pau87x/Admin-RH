@@ -1,20 +1,17 @@
 <?php
 
 use AdminRH\Entities\User;
-//use AdminRH\Repositories\UserRepo;
+use AdminRH\Repositories\UserRepo;
 use AdminRH\Managers\RegisterManager;
 use AdminRH\Managers\AccountManager;
 use AdminRH\Managers\ProfileManager;
 
 class UsersController extends BaseController {
 
-    protected $candidateRepo;
-    protected $categoryRepo;
-
-    // public function __construct(UserRepo $userRepo)
-    // {
-    //     $this->userRepo = $userRepo;
-    // }
+    public function __construct(UserRepo $userRepo)
+    {
+        $this->userRepo = $userRepo;
+    }
 
     public function signUp()
     {
@@ -23,9 +20,9 @@ class UsersController extends BaseController {
 
     public function register()
     {
-        // $user = $this->userRepo->newUser();
-        // $manager = new RegisterManager($user, Input::all());
-        // $manager->save();
+        $user = $this->userRepo->newUser();
+        $manager = new RegisterManager($user, Input::all());
+        $manager->save();
 
         return Redirect::route('home');
     }
@@ -46,26 +43,28 @@ class UsersController extends BaseController {
         return Redirect::route('home');
     }
 
-    // public function profile()
-    // {
-    //     $user = Auth::user();
-    //     $candidate = $user->getCandidate();
+    public function show()
+    {
+        $users = $this->userRepo->getListPaginate();
 
-    //     $categories = $this->categoryRepo->getList();
-    //     $job_types  = \Lang::get('utils.job_types');
+        return View::make('users/show', compact('users'));
+    }
 
-    //     return View::make('users/profile', compact('user', 'candidate', 'categories', 'job_types'));
-    // }
+    public function edit($id)
+    {
+        $user = $this->userRepo->find($id);
+        return View::make('users/edit', compact('user'));
+    }
 
-    // public function updateProfile()
-    // {
-    //     $user = Auth::user();
-    //     $candidate = $user->getCandidate();
-    //     $manager = new ProfileManager($candidate, Input::all());
+    public function update($id)
+    {
+        $user = $this->userRepo->find($id);
+        //dd($user);
+        $manager = new AccountManager($user, Input::all());
 
-    //     $manager->save();
+        $manager->save();
 
-    //     return Redirect::route('home');
-    // }
+        return Redirect::route('users');
+    }
 
 } 
