@@ -24,7 +24,8 @@ class UsersController extends BaseController {
         $manager = new RegisterManager($user, Input::all());
         $manager->save();
 
-        return Redirect::route('home');
+        Session::flash('alert-success', 'El usuario se ha agregado con éxito');
+        return Redirect::route('users');
     }
 
     public function account()
