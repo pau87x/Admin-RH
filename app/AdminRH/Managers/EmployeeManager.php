@@ -44,7 +44,6 @@ class EmployeeManager extends BaseManager {
     {
         $birthdate = str_replace("/","-",$data['birthdate']);
         $data['birthdate'] = date("Y/m/d", strtotime($birthdate));
-        //dd($data);
 
         return $data;
     }

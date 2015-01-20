@@ -149,7 +149,12 @@ return array(
         'comments' => 'comentario',
 
         'center' => 'centro',
-        'title' => 'puesto'
+        'title' => 'puesto',
+        'position_id' => 'Vacante',
+
+        'description' => 'Descripción',
+        'job_type' => 'Tipo',
+        'website_url' => 'Sitio Web',
 	),
 
 );

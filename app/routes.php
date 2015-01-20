@@ -38,6 +38,7 @@ Route::group(['before' => 'guest'], function () {
 Route::group(['before' => 'auth'], function () {
 
     require (__DIR__ . '/routes/auth.php');
+    require (__DIR__ . '/routes/candidate.php');
 
     // Admin routes
 

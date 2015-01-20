@@ -36,17 +36,6 @@
           </button>
           <a class="navbar-brand" href="#">AdminRH</a>
         </div>
-<!--         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div> -->
         <div class="navbar-collapse collapse">
         @if (Auth::check())
             <ul class="nav navbar-nav pull-right">
@@ -91,6 +80,8 @@
             @if (is_admin())
                <li><a href="{{ route('users') }}">Usuarios</a></li>
             @endif
+            <li><a href="{{ route('positions') }}">Vacantes</a></li>
+            <li><a href="{{ route('candidates') }}">Candidatos</a></li>
             <li><a href="{{ route('employees') }}">Empleados</a></li>
             <li><a href="{{ route('titles') }}">Puestos</a></li>
             <li><a href="{{ route('centers') }}">Centros de Servicio</a></li>

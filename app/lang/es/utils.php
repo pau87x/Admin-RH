@@ -4,7 +4,8 @@ return [
     'job_types' => [
         'full'      => 'Tiempo completo',
         'partial'   => 'Tiempo parcial',
-        'freelance' => 'Freelance'
+        'freelance' => 'Freelance',
+        'intern'    => 'Interno'
     ],
     'genre' => [
         'male'     => 'Masculino',

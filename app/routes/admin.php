@@ -10,3 +10,6 @@ Route::delete('center/deleting/{id}', ['as' => 'destroy_center', 'uses' => 'Cent
 
 Route::get('title/delete/{id}', ['as' => 'delete_title', 'uses' => 'TitlesController@delete']);
 Route::delete('title/deleting/{id}', ['as' => 'destroy_title', 'uses' => 'TitlesController@destroy']);
+
+Route::get('position/delete/{id}', ['as' => 'delete_position', 'uses' => 'PositionsController@delete']);
+Route::delete('position/deleting/{id}', ['as' => 'destroy_position', 'uses' => 'PositionsController@destroy']);

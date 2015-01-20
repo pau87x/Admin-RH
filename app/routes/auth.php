@@ -6,11 +6,11 @@ Route::post('sign-up', ['as' => 'register', 'uses' => 'UsersController@register'
 Route::get('account', ['as' => 'account', 'uses' => 'UsersController@account']);
 Route::put('account', ['as' => 'update_account', 'uses' => 'UsersController@updateAccount']);
 
-Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-Route::put('profile', ['as' => 'update_profile', 'uses' => 'UsersController@updateProfile']);
-
 Route::get('user/update/{id}', ['as' => 'edit_user', 'uses' => 'UsersController@edit']);
 Route::put('user/update/{id}', ['as' => 'update_user', 'uses' => 'UsersController@update']);
+
+
+
 
 
 
