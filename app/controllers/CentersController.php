@@ -53,4 +53,26 @@ class CentersController extends BaseController {
         return Redirect::route('centers');
     }
 
+    public function delete($id)
+    {
+        $center = $this->centerRepo->find($id);
+
+        $this->notFoundUnless($center);
+
+        return View::make('centers/delete', compact('center'));
+    }
+
+    public function destroy($id)
+    {
+
+        $center = $this->centerRepo->find($id);
+
+        $this->notFoundUnless($center);
+
+        $center->delete();
+
+        return Redirect::route('centers');
+
+    }
+
 } 

@@ -53,4 +53,26 @@ class TitlesController extends BaseController {
         return Redirect::route('titles');
     }
 
+    public function delete($id)
+    {
+        $title = $this->titleRepo->find($id);
+
+        $this->notFoundUnless($title);
+
+        return View::make('titles/delete', compact('title'));
+    }
+
+    public function destroy($id)
+    {
+
+        $title = $this->titleRepo->find($id);
+
+        $this->notFoundUnless($title);
+
+        $title->delete();
+
+        return Redirect::route('titles');
+
+    }
+
 } 

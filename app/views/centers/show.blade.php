@@ -26,7 +26,7 @@
         @if (is_admin())
         <td>
           <a class="btn btn-success" href="{{ route('edit_center', [$center->id]) }}" role="button">Editar</a>
-          <a class="btn btn-danger" href="#" role="button">Eliminar</a>
+          <a class="btn btn-danger ajax-modal-dialog" href="{{ route('delete_center', [$center->id]) }}" role="button">Eliminar</a>
         </td>
         @endif
       </tr>
