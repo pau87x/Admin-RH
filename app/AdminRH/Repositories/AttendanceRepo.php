@@ -22,12 +22,12 @@ class AttendanceRepo extends BaseRepo {
         return $layoff;
     }
     
-    public function getAttendances($date)
-    {
-        $sql = "select *, (SELECT a.id FROM attendances a where e.id=a.employee_id and DATE(created_at) = :date limit 1) as assistance from employees e";
-        $results = \DB::select( \DB::raw($sql), array('date' => $date));
+    // public function getAttendances($date)
+    // {
+    //     $sql = "select *, (SELECT a.id FROM attendances a where e.id=a.employee_id and DATE(created_at) = :date limit 1) as assistance from employees e";
+    //     $results = \DB::select( \DB::raw($sql), array('date' => $date));
         
-        return $results;
-    }
+    //     return $results;
+    // }
 
 } 

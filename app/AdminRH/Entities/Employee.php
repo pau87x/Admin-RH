@@ -60,6 +60,16 @@ class Employee extends \Eloquent {
         return $center;
     }
 
+    public function getAssistanceAttribute()
+    {
+        if($this->attendances->count() > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public function getFullNameAttribute()
     {
         return $this->last_name  . ' ' . $this->maiden_name . ' ' . $this->first_name . ' ' .   $this->middle_name;
