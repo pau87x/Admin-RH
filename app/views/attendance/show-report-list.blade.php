@@ -9,8 +9,8 @@
     <thead>
       <tr>
         <th>Código</th>
-        <!-- <th>Nombre Completo</th> -->
-        <!-- <th>Puesto</th> -->
+        <th>Nombre Completo</th>
+        <th>Puesto</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -18,8 +18,8 @@
       @foreach ($employees as $employee)
       <tr>
         <td>{{ $employee->code }}</td>
-<!--         <td>@{{ $employee->full_name }}</td>
-        <td> @{{ $employee->title }} </td> -->
+        <td>{{ $employee->full_name }}</td>
+        <td>{{ $employee->title }} </td>
         <td>
           <div id="navigation">
             @if ($employee->assistance)
@@ -35,7 +35,6 @@
     </tbody>
   </table>
   <div class="text-center">
-      @{{ $employees->links() }}
   </div>
 </div>
 

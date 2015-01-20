@@ -20,11 +20,9 @@ class AttendancesController extends BaseController {
 
     public function listAttendance()
     {
-        //$employees = $this->employeeRepo->getActives();
-        $date = date('d/m/Y');
-        $employees = $this->attendanceRepo->getAttendances($date);
+        $date = date('Y/m/d');
 
-        //dd($employees);
+        $employees = $this->employeeRepo->getAttendances($date);
 
         return View::make('employees/list', compact('employees'));
     }
@@ -80,11 +78,12 @@ class AttendancesController extends BaseController {
         // $center = Input::get('center');
         // $title = Input::get('title');
         // $supervisor = Input::get('supervisor');
+
         $latin_date = Input::get('date');
         $date = str_replace("/","-",$latin_date);
         $date = date("Y/m/d", strtotime($date));
 
-        $employees = $this->attendanceRepo->getAttendances($date);
+        $employees = $this->employeeRepo->getAttendances($date);
 
         return View::make('attendance/show-report-list', compact('employees','latin_date'));
     }

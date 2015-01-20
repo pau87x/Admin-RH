@@ -67,6 +67,21 @@ class EmployeeRepo extends BaseRepo {
                         ->orderBy('first_name', 'asc')->get();
     }
 
+    public function getAttendances($date)
+    {
+
+        $employees = Employee::with(array('attendances' => function($query) use ($date)
+        {
+            $query->where('created_at', '>=',$date.' 00:00:00')
+                  ->where('created_at','<', $date.' 23:59:00');
+
+        }))->get();
+
+        return $employees;
+
+    }
+
+
     public function newEmployee()
     {
         $employee = new Employee();
