@@ -10,7 +10,7 @@
         
         {{ Form::open(['route' => array('destroy_center', $center->id), 'method' => 'delete', 'role' => 'form', 'novalidate']) }}
             <div class="modal-body">
-                ¿ Desea eliminar al centro <strong>{{ $center->name }}</strong>?
+                ¿Desea eliminar al centro <strong>{{ $center->name }}</strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

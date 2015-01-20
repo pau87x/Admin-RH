@@ -10,12 +10,16 @@
         
         {{ Form::open(['route' => array('destroy_change', $change->id), 'method' => 'delete', 'role' => 'form', 'novalidate']) }}
             <div class="modal-body">
-                @if ($change->current==1)
+                @if ($count==1)
+                <div class="alert alert-warning" role="alert">
+                    El empleado se quedará sin puesto.
+                </div>
+                @elseif($change->current==1)
                 <div class="alert alert-info" role="alert">
                   Este puesto es el actual, se actualizará el anterior como actual.
                 </div>
                 @endif
-                ¿Desea eliminar este cambio de puesto a <strong>{{ $change -> title -> name }}</strong>?
+                ¿Desea eliminar este cambio de puesto a <strong>{{ $change->title ->name }}</strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

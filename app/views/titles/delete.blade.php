@@ -10,7 +10,7 @@
         
         {{ Form::open(['route' => array('destroy_title', $title->id), 'method' => 'delete', 'role' => 'form', 'novalidate']) }}
             <div class="modal-body">
-                ¿ Desea eliminar el puesto <strong>{{ $title->name }}</strong>?
+                ¿Desea eliminar el puesto <strong>{{ $title->name }}</strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

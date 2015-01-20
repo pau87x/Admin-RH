@@ -98,7 +98,12 @@ class ChangesController extends BaseController {
     {
         $change = $this->changeRepo->find($id);
 
-        return View::make('changes/delete', compact('change'));
+        $employee_id = $change->employee_id;
+
+        if(!$count = $this->changeRepo->getChanges($employee_id)->count())
+            $count = 0;
+
+        return View::make('changes/delete', compact('change','count'));
     }
 
     public function destroy($id)
