@@ -5,7 +5,8 @@ class Candidate extends \Eloquent {
     protected $fillable = ['first_name', 'middle_name','last_name','maiden_name',
                             'birthdate' ,'genre',
                             'cell_phone','email',
-                            'city','state_id','position_id'];
+                            'city','state_id',
+                            'position_id','salary','comment'];
 
     protected $perPage = 20;
 

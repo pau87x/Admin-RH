@@ -41,8 +41,11 @@
             
             {{ Field::select('position_id', $positions) }}
 
+            {{ Field::text('salary') }}
 
+            @{{ Field::text('cv') }}
 
+            {{ Field::textarea('comment') }}
             <p>
                 <input type="submit" value="Registrar" class="btn btn-success">
             </p>

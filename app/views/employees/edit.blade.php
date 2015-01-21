@@ -61,7 +61,7 @@
 
 
             <p>
-                <input type="submit" value="Registrar" class="btn btn-success">
+                <input type="submit" value="Guardar" class="btn btn-success">
             </p>
 
             {{ Form::close() }}

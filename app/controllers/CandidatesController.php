@@ -78,8 +78,11 @@ class CandidatesController extends BaseController {
     {
         $candidate = $this->candidateRepo->find($id);
         $manager  = new CandidateManager($candidate, Input::all());
-
+        extract(Input::all());
         $manager->save();
+
+        $extension = Input::file('cv')->getClientOriginalExtension();
+        $cv->move("cvs", Input::file('cv')->getClientOriginalName());
 
         return Redirect::route('candidates');
     }

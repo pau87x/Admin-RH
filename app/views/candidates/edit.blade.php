@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <h1>Editar Candidato</h1>
 
-            {{ Form::model($candidate, ['route' => array('update_candidate', $candidate->id), 'method' => 'PUT', 'role' => 'form', 'novalidate']) }}
+            {{ Form::model($candidate, ['route' => array('update_candidate', $candidate->id), 'method' => 'PUT', 'files' => true, 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('first_name') }}
 
@@ -41,8 +41,15 @@
             
             {{ Field::select('position_id', $positions) }}
 
+            {{ Field::text('salary') }}
+
+            {{ Field::file('cv') }}
+             @{{ Form::file('cv') }}
+
+            {{ Field::textarea('comment') }}
+
             <p>
-                <input type="submit" value="Registrar" class="btn btn-success">
+                <input type="submit" value="Guardar" class="btn btn-success">
             </p>
 
             {{ Form::close() }}

@@ -21,9 +21,9 @@ class CandidateManager extends BaseManager {
             'state_id'  => 'required|exists:estados,id',
 
             'position_id' => 'required|exists:positions,id',
-            // //cv
-            // 'salary'   => 'required|numeric|min:0'
-            //comment
+            'comment' => 'max:1000',
+            'cv'        => 'required|mimes:pdf,png',
+            'salary'   => 'required|numeric|min:0'
             
         ];
 

@@ -155,6 +155,8 @@ return array(
         'description' => 'Descripción',
         'job_type' => 'Tipo',
         'website_url' => 'Sitio Web',
+        'comment' => 'Comentario',
+        'cv' => 'Curriculum Vitae'
 	),
 
 );
