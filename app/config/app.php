@@ -124,6 +124,7 @@ return array(
         // Vendor
         'Way\Generators\GeneratorsServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
         // Custom
         'AdminRH\Components\FieldServiceProvider'
@@ -193,8 +194,10 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
+		// Vendor
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+		
         // Custom
-
         'Field'           => 'AdminRH\Components\Field'
 	),
 

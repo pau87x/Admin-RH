@@ -12,8 +12,6 @@ Route::put('user/update/{id}', ['as' => 'update_user', 'uses' => 'UsersControlle
 
 
 
-
-
 Route::get('employees', ['as' => 'employees', 'uses' => 'EmployeesController@show']);
 
 Route::get('employee/register', ['as' => 'new_employee', 'uses' => 'EmployeesController@create']);

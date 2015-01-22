@@ -1,5 +1,9 @@
 @extends('layouts')
 
+@section('extra-css')
+<script src="{{ asset('excellentexport/excellentexport.min.js') }}"></script>
+@endsection
+
 @section('content')
 
 <h1 class="page-header">Candidatos
@@ -17,7 +21,7 @@
 
 </h1>
 <div class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-striped" id="candidates-table">
     <thead>
       <tr>
         <th>Nombre Completo</th>
@@ -35,20 +39,20 @@
         <td> {{ $candidate->email }} </td>
         <td> {{ $candidate->cell_phone }} </td>
         <td>
-          <div class="pull-right">
-            <a class="btn btn-default glyphicon glyphicon-eye-open" href="{{ route('show_candidate', [$candidate->id]) }}" role="button"></a>
-            <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_candidate', [$candidate->id]) }}" role="button"></a>
-            <a class="btn btn-danger glyphicon glyphicon-chevron-down" href="@{{ route('layoff', [$candidate->id]) }}" role="button"></a> 
-          </div>
+
         </td>
 
       </tr>
       @endforeach
     </tbody>
   </table>
+
   <div class="text-center">
       {{ $candidates->links() }}
+      <a class="btn btn-success text-center" download="candidatos.xls" href="#" onclick="return ExcellentExport.excel(this, 'candidates-table', 'Candidatos');">Exportar a excel</a>
   </div>
-
 </div>
 @stop
+
+@section('extra-js')
+@endsection

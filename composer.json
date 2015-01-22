@@ -9,7 +9,8 @@
         "barryvdh/laravel-debugbar": "1.*"
     },
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+		"maatwebsite/excel": "~1.2.1"
 	},
 	"autoload": {
         "psr-4": {

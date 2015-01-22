@@ -77,12 +77,22 @@ class CandidatesController extends BaseController {
     public function update($id)
     {
         $candidate = $this->candidateRepo->find($id);
+
+       // extract(Input::all());
+
+        // if( $file = Input::file('cv')->getClientOriginalName() ){
+        //     Input::merge(array('cv' => $file));
+
+        //     // $extension = Input::file('cv')->getClientOriginalExtension();
+        //     $cv->move("cvs", $file);
+        // }
+
+
         $manager  = new CandidateManager($candidate, Input::all());
-        extract(Input::all());
         $manager->save();
 
-        $extension = Input::file('cv')->getClientOriginalExtension();
-        $cv->move("cvs", Input::file('cv')->getClientOriginalName());
+
+
 
         return Redirect::route('candidates');
     }
@@ -122,5 +132,27 @@ class CandidatesController extends BaseController {
         return View::make('candidates/show-report', compact('candidates'));
     }
 
+    public function toExcel()
+    {
+
+        $candidates = $this->candidateRepo->getList();
+
+        Excel::create('Candidatos', function($excel) use ($candidates){ //Archivo
+
+            $excel->sheet('candidatos', function($sheet) use ($candidates){ //Hoja
+
+                $data = [];
+                array_push($data, ["Nombre Completo","Correo electrónico","Tel. Cel"]);
+                
+                foreach ($candidates as $candidate) {
+                    array_push($data, [$candidate->full_name,$candidate->email,$candidate->cell_phone]);
+                }
+                $sheet->fromArray($data,null,'A1',false,false);
+
+            });
+
+        })->export('xls');
+        
+    }
 
 } 

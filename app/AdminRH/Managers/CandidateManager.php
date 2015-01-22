@@ -20,10 +20,10 @@ class CandidateManager extends BaseManager {
             'city'      => 'required',
             'state_id'  => 'required|exists:estados,id',
 
-            'position_id' => 'required|exists:positions,id',
-            'comment' => 'max:1000',
-            'cv'        => 'required|mimes:pdf,png',
-            'salary'   => 'required|numeric|min:0'
+            'position_id'   => 'required|exists:positions,id',
+            'comment'       => 'max:1000',
+            'cv'            => 'required|mimes:pdf,png',
+            'salary'        => 'required|numeric|min:0'
             
         ];
 
@@ -32,6 +32,8 @@ class CandidateManager extends BaseManager {
 
     public function prepareData($data)
     {
+
+        //dd($data);
         $birthdate = str_replace("/","-",$data['birthdate']);
         $data['birthdate'] = date("Y/m/d", strtotime($birthdate));
 
