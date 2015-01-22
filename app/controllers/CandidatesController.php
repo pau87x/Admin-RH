@@ -80,19 +80,8 @@ class CandidatesController extends BaseController {
 
        // extract(Input::all());
 
-        // if( $file = Input::file('cv')->getClientOriginalName() ){
-        //     Input::merge(array('cv' => $file));
-
-        //     // $extension = Input::file('cv')->getClientOriginalExtension();
-        //     $cv->move("cvs", $file);
-        // }
-
-
         $manager  = new CandidateManager($candidate, Input::all());
         $manager->save();
-
-
-
 
         return Redirect::route('candidates');
     }

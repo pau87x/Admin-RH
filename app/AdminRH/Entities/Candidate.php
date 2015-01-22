@@ -6,7 +6,7 @@ class Candidate extends \Eloquent {
                             'birthdate' ,'genre',
                             'cell_phone','email',
                             'city','state_id',
-                            'position_id','salary','comment'];
+                            'position_id','cv','salary','comment'];
 
     protected $perPage = 20;
 
