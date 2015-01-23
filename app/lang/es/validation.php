@@ -156,7 +156,17 @@ return array(
         'job_type' => 'Tipo',
         'website_url' => 'Sitio Web',
         'comment' => 'Comentario',
-        'cv' => 'Curriculum Vitae'
+        'cv' => 'Curriculum Vitae',
+
+        //Education
+        'school' => 'institución',
+        'degree' => 'titulo',
+        'start' => 'fecha de inicio',
+        'end' => 'fecha de fin',
+
+        //Experience
+        'company' => 'Compañia',
+        'summary' => 'Descripción',
 	),
 
 );

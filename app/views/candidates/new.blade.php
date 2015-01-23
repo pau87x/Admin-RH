@@ -43,7 +43,7 @@
 
             {{ Field::text('salary') }}
 
-            @{{ Field::text('cv') }}
+            {{ Field::file('cv') }}
 
             {{ Field::textarea('comment') }}
             <p>

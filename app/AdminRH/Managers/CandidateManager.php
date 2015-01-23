@@ -22,7 +22,7 @@ class CandidateManager extends BaseManager {
 
             'position_id'   => 'required|exists:positions,id',
             'comment'       => 'max:1000',
-            'cv'            => 'mimes:pdf',
+            //'cv'            => 'mimes:pdf',
             'salary'        => 'required|numeric|min:0'
             
         ];
@@ -32,13 +32,14 @@ class CandidateManager extends BaseManager {
 
     public function prepareData($data)
     {
-        if($data["cv"])
-        {
-             $cv = $data["cv"];
-             $file = $data["cv"]->getClientOriginalName();
-             $cv->move("cvs", $file);
-             $data['cv'] = $file;
-        }
+        // dd($data);
+        // if($data["cv"])
+        // {
+        //      $cv = $data["cv"];
+        //      $file = $data["cv"]->getClientOriginalName();
+        //      $cv->move("cvs", $file);
+        //      $data['cv'] = $file;
+        // }
 
         $birthdate = str_replace("/","-",$data['birthdate']);
         $data['birthdate'] = date("Y/m/d", strtotime($birthdate));

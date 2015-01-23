@@ -5,6 +5,8 @@ use AdminRH\Repositories\CityRepo;
 use AdminRH\Repositories\StateRepo;
 use AdminRH\Repositories\PositionRepo;
 use AdminRH\Repositories\CenterRepo;
+use AdminRH\Repositories\EducationRepo;
+use AdminRH\Repositories\ExperienceRepo;
 use AdminRH\Managers\CandidateManager;
 
 class CandidatesController extends BaseController {
@@ -13,16 +15,22 @@ class CandidatesController extends BaseController {
     protected $cityRepo;
     protected $stateRepo;
     protected $positionRepo;
+    protected $educationRepo;
+    protected $experienceRepo;
 
     public function __construct(CandidateRepo $candidateRepo,
                                 CityRepo $cityRepo,
                                 StateRepo $stateRepo,
-                                PositionRepo $positionRepo)
+                                PositionRepo $positionRepo,
+                                EducationRepo $educationRepo,
+                                ExperienceRepo $experienceRepo)
     {
         $this->candidateRepo = $candidateRepo;
         $this->cityRepo      = $cityRepo;
         $this->stateRepo     = $stateRepo;
         $this->positionRepo  = $positionRepo;
+        $this->educationRepo  = $educationRepo;
+        $this->experienceRepo  = $experienceRepo;
     }
 
     public function show()
@@ -35,8 +43,10 @@ class CandidatesController extends BaseController {
     public function showCandidate($id)
     {
         $candidate = $this->candidateRepo->find($id);
+        $education = $this->educationRepo->getAll($id);
+        $experiences = $this->experienceRepo->getAll($id);
 
-        return View::make('candidates/show-candidate', compact('candidate'));
+        return View::make('candidates/show-candidate', compact('candidate','education','experiences'));
     }
 
     public function create()
@@ -77,8 +87,6 @@ class CandidatesController extends BaseController {
     public function update($id)
     {
         $candidate = $this->candidateRepo->find($id);
-
-       // extract(Input::all());
 
         $manager  = new CandidateManager($candidate, Input::all());
         $manager->save();
