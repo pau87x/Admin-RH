@@ -19,7 +19,7 @@ class PositionsController extends BaseController {
 
     public function show()
     {
-        $positions = $this->positionRepo->getAll();
+        $positions = $this->positionRepo->getCurrent();
 
         return View::make('positions/show', compact('positions'));
     }

@@ -11,7 +11,6 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Nombre</th>
         <th>Tipo</th>
         <th>Salario</th>
@@ -24,7 +23,6 @@
     <tbody>
       @foreach ($positions as $position)
       <tr>
-        <td>{{ $position->id }}</td>
         <td>{{ $position->name }}</td>
         <td>{{ $position->job_type_title }}</td>
         <td>{{ $position->salary }}</td>

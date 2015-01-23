@@ -21,6 +21,11 @@ class PositionRepo extends BaseRepo {
         return Position::get();
     }
 
+    public function getCurrent()
+    {    
+        return Position::where("current","=","1")->orderBy('created_at', 'desc')->get();
+    }
+
 
     public function find($id)
     {
