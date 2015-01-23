@@ -1,6 +1,7 @@
 <?php
 
 Route::get('candidates', ['as' => 'candidates', 'uses' => 'CandidatesController@show']);
+Route::get('candidates/all', ['as' => 'all_candidates', 'uses' => 'CandidatesController@showAll']);
 
 Route::get('candidate/register', ['as' => 'new_candidate', 'uses' => 'CandidatesController@create']);
 Route::post('candidate/register', ['as' => 'save_new_candidate', 'uses' => 'CandidatesController@register']);

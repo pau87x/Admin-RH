@@ -35,6 +35,13 @@ class CandidatesController extends BaseController {
 
     public function show()
     {
+        $candidates = $this->candidateRepo->getCurrentPaginate();
+
+        return View::make('candidates/show', compact('candidates'));
+    }
+
+    public function showAll()
+    {
         $candidates = $this->candidateRepo->getListPaginate();
 
         return View::make('candidates/show', compact('candidates'));

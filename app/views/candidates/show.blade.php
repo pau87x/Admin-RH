@@ -25,8 +25,8 @@
     <thead>
       <tr>
         <th>Nombre Completo</th>
-        <th>Correo Electrónico</th>
         <th>Puesto</th>
+        <th>Correo Electrónico</th>
         <th>Celular</th>
         <th>Acciones</th>
       </tr>
@@ -54,7 +54,10 @@
 
   <div class="text-center">
       {{ $candidates->links() }}
-      <a class="btn btn-success text-center" download="candidatos.xls" href="#" onclick="return ExcellentExport.excel(this, 'candidates-table', 'Candidatos');">Exportar a excel</a>
+  </div>
+  <div class="text-center">
+        <a class="btn btn-primary text-center" href="{{ route('all_candidates') }}" >Ver todos</a>
+        <a class="btn btn-success text-center" download="candidatos.xls" href="#" onclick="return ExcellentExport.excel(this, 'candidates-table', 'Candidatos');">Exportar a excel</a>
   </div>
 </div>
 @stop

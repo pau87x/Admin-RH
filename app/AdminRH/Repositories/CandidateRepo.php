@@ -22,17 +22,15 @@ class CandidateRepo extends BaseRepo {
        return Candidate::paginate(10);
     }
 
-    public function getFilterList($title)
-    {
+    public function getCurrentPaginate()
+    {   
+        $candidates = Candidate::with('position')->whereHas('position', function($q){
 
-        // $candidates = Candidate::with('changes')->whereHas('changes', function($q) use ($title){
+                $q->where('current', '=', '1');
 
-        //     if($title!='')
-        //         $q->where('title_id', '=', $title);
-
-        // })->get();
-        
+         })->paginate(10);
         return $candidates;
+
     }
 
     public function newCandidate()

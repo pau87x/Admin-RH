@@ -13,7 +13,7 @@ class PositionRepo extends BaseRepo {
 
     public function getList()
     {
-        return Position::lists('name', 'id');
+        return Position::where('current','=','1')->lists('name', 'id');
     }
 
     public function getAll()
@@ -23,7 +23,7 @@ class PositionRepo extends BaseRepo {
 
     public function getCurrent()
     {    
-        return Position::where("current","=","1")->orderBy('created_at', 'desc')->get();
+        return Position::where('current','=','1')->orderBy('created_at', 'desc')->get();
     }
 
 
