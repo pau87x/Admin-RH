@@ -18,7 +18,7 @@ class ExperienceRepo extends BaseRepo {
 
     public function getAll($id)
     {    
-        return Experience::where('candidate_id', $id)->get();
+        return Experience::where('candidate_id', $id)->orderBy('start', 'desc')->get();
     }
 
     public function find($id)
