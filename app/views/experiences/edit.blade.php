@@ -23,6 +23,8 @@
 
             {{ Field::text('end', null, ['id' => 'end', 'class'=>'datepicker']) }}
 
+            {{ Field::checkbox('current') }}
+
             <p>
                 <input type="submit" value="Guardar" class="btn btn-success">
             </p>

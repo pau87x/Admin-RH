@@ -11,6 +11,7 @@ class ExperienceManager extends BaseManager {
             'start'    	=> 'required|date_format:"d/m/Y"',
             'end' 		=> 'required|date_format:"d/m/Y"',
             'candidate_id' => 'required|exists:candidates,id',
+            'current'   => 'in:1,0'
         ];
 
         return $rules;
@@ -23,6 +24,11 @@ class ExperienceManager extends BaseManager {
 
         $end = str_replace("/","-",$data['end']);
         $data['end'] = date("Y/m/d", strtotime($end));
+
+        if ( ! isset ($data['current']))
+        {
+            $data['current'] = 0;
+        }
 
         return $data;
     }

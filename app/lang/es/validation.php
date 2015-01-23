@@ -167,6 +167,7 @@ return array(
         //Experience
         'company' => 'Compañia',
         'summary' => 'Descripción',
+        'current' => 'trabajo actual'
 	),
 
 );
