@@ -9,9 +9,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1>Editar Candidato</h1>
+            <h1>Reclutar Candidato</h1>
 
-            {{ Form::model($candidate, ['route' => array('update_candidate', $candidate->id), 'method' => 'PUT', 'files' => true, 'role' => 'form', 'novalidate']) }}
+            {{ Form::model($candidate, ['route' => array('reclute_new_employee', $candidate->position->id), 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
+
+            {{ Field::text('code') }}
 
             {{ Field::text('first_name') }}
 
@@ -27,28 +29,38 @@
 
             <h3>Contacto </h3>
 
+            {{ Field::text('phone', null, ['maxlength' => '10']) }}
+
             {{ Field::text('cell_phone', null, ['maxlength' => '10']) }}
 
             {{ Field::email('email') }}
 
-            <h3>Lugar de residencia</h3>
+            <h3>Datos </h3>
+
+            {{ Field::text('rfc') }}
+
+            {{ Field::text('curp') }}
+
+            {{ Field::text('ss_number') }}
+
+            <h3>Dirección</h3>
+
+            {{ Field::text('street') }}
+
+            {{ Field::text('no_ext') }}
+
+            {{ Field::text('no_int') }}
+
+            {{ Field::text('extra_address') }}
+
+            {{ Field::text('zip_code') }}
 
             {{ Field::text('city') }}
 
             {{ Field::select('state_id', $states) }}
-            
-            <h3>Vacante</h3>
-            
-            {{ Field::select('position_id', $positions) }}
-
-            {{ Field::text('salary') }}
-
-            {{ Field::file('cv') }}
-
-            {{ Field::textarea('comment') }}
 
             <p>
-                <input type="submit" value="Guardar" class="btn btn-success">
+                <input type="submit" value="Registrar" class="btn btn-success">
             </p>
 
             {{ Form::close() }}

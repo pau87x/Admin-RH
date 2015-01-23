@@ -13,6 +13,10 @@ Route::put('candidate/update/{id}', ['as' => 'update_candidate', 'uses' => 'Cand
 Route::get('excel/candidates/', ['as' => 'excel_candidates', 'uses' => 'CandidatesController@toExcel']);
 
 
+Route::get('reclute/{id}', ['as' => 'reclute_candidate', 'uses' => 'CandidatesController@reclute']);
+Route::post('employees/reclute/{id}', ['as' => 'reclute_new_employee', 'uses' => 'EmployeesController@registerReclute']);
+
+
 Route::get('positions', ['as' => 'positions', 'uses' => 'PositionsController@show']);
 Route::get('positions/register', ['as' => 'new_position', 'uses' => 'PositionsController@create']);
 Route::post('positions/register', ['as' => 'save_new_position', 'uses' => 'PositionsController@register']);

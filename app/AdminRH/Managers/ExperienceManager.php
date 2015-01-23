@@ -5,7 +5,7 @@ class ExperienceManager extends BaseManager {
     public function getRules()
     {
         $rules = [
-            'company'	=> 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
+            'company'	=> 'required|regex:/^[a-zA-Z\s\ñ\Ñ0-9][ A-Za-z\s\ñ\Ñ0-9._-]*$/', 
             'title' 	=> 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
             'summary'   => 'required|max:1000',
             'start'    	=> 'required|date_format:"d/m/Y"',

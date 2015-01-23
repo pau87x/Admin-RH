@@ -46,7 +46,7 @@ class CreateEmployeesTable extends Migration {
 			$table->string('city');
 			$table->integer('state_id')->unsigned();
 
-			$table->integer('status_id')->default(1);
+			$table->integer('status_id')->default(2);
 
 			$table->foreign('state_id')->references('id')->on('estados');			
 

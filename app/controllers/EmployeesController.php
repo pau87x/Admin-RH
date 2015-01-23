@@ -5,6 +5,7 @@ use AdminRH\Repositories\CityRepo;
 use AdminRH\Repositories\StateRepo;
 use AdminRH\Repositories\TitleRepo;
 use AdminRH\Repositories\CenterRepo;
+use AdminRH\Repositories\PositionRepo;
 use AdminRH\Managers\EmployeeManager;
 
 class EmployeesController extends BaseController {
@@ -12,18 +13,23 @@ class EmployeesController extends BaseController {
     protected $employeeRepo;
     protected $cityRepo;
     protected $stateRepo;
+    protected $titleRepo;
+    protected $centerRepo;
+    protected $positionRepo;
 
     public function __construct(EmployeeRepo $employeeRepo,
                                 CityRepo $cityRepo,
                                 StateRepo $stateRepo,
                                 TitleRepo $titleRepo,
-                                CenterRepo $centerRepo)
+                                CenterRepo $centerRepo,
+                                PositionRepo $positionRepo)
     {
         $this->employeeRepo = $employeeRepo;
         $this->cityRepo     = $cityRepo;
         $this->stateRepo    = $stateRepo;
         $this->titleRepo    = $titleRepo;
         $this->centerRepo   = $centerRepo;
+        $this->positionRepo   = $positionRepo;
     }
 
     public function show()
@@ -55,6 +61,20 @@ class EmployeesController extends BaseController {
         $manager  = new EmployeeManager($employee, Input::all());
         
         $manager->save();
+
+        return Redirect::route('employees');
+    }
+
+    public function registerReclute($id)
+    {
+        $employee = $this->employeeRepo->newEmployee();
+        $manager  = new EmployeeManager($employee, Input::all());
+        $manager->save();
+
+        $position = $this->positionRepo->find($id);
+        $position->current=0;
+        $position->save();
+
 
         return Redirect::route('employees');
     }

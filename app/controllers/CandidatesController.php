@@ -111,6 +111,22 @@ class CandidatesController extends BaseController {
         return Redirect::route('candidates');
     }
 
+    public function reclute($id)
+    {
+        $candidate = $this->candidateRepo->find($id);
+
+        $this->notFoundUnless($candidate);
+
+        $birthdate = str_replace("/","-",$candidate->birthdate);
+        $candidate->birthdate = date("d/m/Y", strtotime($birthdate));
+
+        $genres     = \Lang::get('utils.genre');
+        $states     = $this->stateRepo->getList();
+        $position   = $candidate->position;
+
+        return View::make('candidates/reclute', compact('candidate','genres','states','position'));
+    }
+
 
     public function filterReport()
     {
