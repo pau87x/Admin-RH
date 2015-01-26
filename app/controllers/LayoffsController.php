@@ -29,7 +29,9 @@ class LayoffsController extends BaseController {
         if($employee->title=='-')
             $job = 0;
 
-        return View::make('layoffs/new', compact('employee','personal','job'));
+        $today = date('d/m/Y');
+
+        return View::make('layoffs/new', compact('employee','personal','job','today'));
     }
 
     public function register($id)

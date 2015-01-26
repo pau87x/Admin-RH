@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="page-header">Lista de Asistencia {{ Input::get('date') }}</h1>
+<h2 class="page-header">Lista de Asistencia {{ Input::get('date') }}</h2>
 
 <div class="table-responsive">
   <table class="table table-striped">

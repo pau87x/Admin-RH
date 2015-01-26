@@ -67,8 +67,9 @@ class AttendancesController extends BaseController {
         // $centers = $this->centerRepo->getList();
         // $supervisors  = $this->employeeRepo->getListSupervisors();
 
+        $today = date('d/m/Y');
 
-        return View::make('attendance/report-list');
+        return View::make('attendance/report-list',compact('today'));
        
     }
 

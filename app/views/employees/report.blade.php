@@ -2,9 +2,11 @@
 
 @section('content')
 
-<h1 class="page-header">Reporte de Personal</h1>
+<h2 class="page-header">Reporte de Personal</h2>
 
-            {{ Form::open(['route' => 'report_search', 'method' => 'GET', 'role' => 'form', 'novalidate']) }}
+<div class="col-sm-6 col-md-6">
+
+			{{ Form::open(['route' => 'report_search', 'method' => 'GET', 'role' => 'form', 'novalidate']) }}
 
             {{ Field::select('status', $status) }}
 
@@ -14,11 +16,10 @@
 
             {{ Field::select('supervisor', $supervisors) }}
 
-
-            
             <p>
                 <input type="submit" value="Buscar" class="btn btn-success">
             </p>
 
             {{ Form::close() }}
+</div>
 @stop

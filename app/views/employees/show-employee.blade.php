@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="page-header">{{ $employee->code }}-{{ $employee->full_name }} 
+<h2 class="page-header">{{ $employee->code }}-{{ $employee->full_name }} 
         @if ($employee->status_id === 1)
         <span class="label label-danger pull-right">{{ $employee->status }}</span>
         @elseif ($employee->status_id === 2)
@@ -10,8 +10,9 @@
         @else
          <span class="label label-default pull-right">{{ $employee->status }}</span>
         @endif
-</h1>
-<div class="table-responsive">
+</h2>
+
+<div>
 
         <h4>Puesto Actual</h4>
         {{ $employee->center }}- {{ $employee->supervisor }}

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="page-header">Lista de Asistencia {{ date('d/m/Y') }}</h1>
+<h2 class="page-header">Lista de Asistencia {{ date('d/m/Y') }}</h2>
 
 <div class="table-responsive">
   <table class="table table-striped">

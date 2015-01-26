@@ -2,10 +2,12 @@
 
 @section('content')
 
-<h1 class="page-header">Historial
+<h2 class="page-header">Historial
   <a class="btn btn-success pull-right" href="{{ route('new_change', [$employee->id]) }}" role="button">Nuevo</a>
-</h1>
+</h2>
+
 <h3> {{ $employee->full_name }} </h3>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>

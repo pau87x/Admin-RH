@@ -2,7 +2,9 @@
 
 @section('content')
 
-<h1 class="page-header">Reporte de Personal</h1>
+<h2 class="page-header">Reporte de Personal</h2>
+
+<div class="col-sm-6 col-md-6">
 
             {{ Form::open(['route' => 'report_search', 'method' => 'GET', 'role' => 'form', 'novalidate']) }}
 
@@ -13,4 +15,6 @@
             </p>
 
             {{ Form::close() }}
+
+</div>
 @stop

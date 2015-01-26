@@ -33,7 +33,7 @@
 
             {{ Form::open(['route' => array('save_new_layoff', $employee->id), 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
 
-            {{ Field::text('date', null, ['id' => 'date', 'class'=>'datepicker']) }}
+            {{ Field::text('date', $today, ['id' => 'date', 'class'=>'datepicker']) }}
 
             {{ Field::text('reason') }}
 
@@ -61,7 +61,10 @@ $(document).ready(function(){
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         language: "es",
-        startView: 2
+        startView: 1,
+        todayHighlight: true,
+        todayBtn: true,
+        autoclose: true
     });
 });
 </script>

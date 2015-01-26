@@ -2,7 +2,8 @@
 
 @section('content')
 
-<h1 class="page-header">Candidatos</h1>
+<h2 class="page-header">Candidatos</h2>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>

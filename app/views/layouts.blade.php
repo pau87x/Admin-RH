@@ -89,19 +89,6 @@
             <li><a href="{{ route('list') }}">Lista de Asistencia</a></li>
             <li><a href="{{ route('report_list') }}">Reporte de asistencia</a></li>
           </ul>
-          <!--
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul> -->
         </div>
         <div class="modal fade" id="modal-dialog" role="dialog" data-backdrop="static" data-keyboard="false"></div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

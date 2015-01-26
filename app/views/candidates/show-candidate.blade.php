@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1 class="page-header"> {{ $candidate->full_name }} </h1>
-<div class="">
+<h2 class="page-header"> {{ $candidate->full_name }} </h2>
 
+<div>
         <h4>Vacante</h4>
         {{ $candidate->position_name }}
 
@@ -19,39 +19,40 @@
         {{ $candidate->fecha_nac }}
 
         <br/>
+
         <h3>Educación
           <a class="btn btn-info glyphicon glyphicon-book pull-right" href="{{ route('add_education', [$candidate->id]) }}" role="button"> Agregar</a>
         </h3>
 
-      <table class="table" id="education-table">
-          <thead>
-            <tr>
-              <th>Institución</th>
-              <th>Titulo</th>
-              <th>Fecha Inicio</th>
-              <th>Fecha Fin</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-              @foreach ($education as $school)
+        <table class="table" id="education-table">
+            <thead>
               <tr>
-                <td> {{ $school->school }} </td>
-                <td> {{ $school->degree }} </td>
-                <td> {{ $school->start }} </td>
-                <td> {{ $school->end }} </td>
-                <td>
-                    <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_education', [$school->id]) }}" role="button"></a>
-                    <a class="btn btn-danger glyphicon glyphicon-remove ajax-modal-dialog" href="{{ route('delete_education', [$school->id]) }}" role="button"></a> 
-                </td>
-
+                <th>Institución</th>
+                <th>Titulo</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Acciones</th>
               </tr>
-              @endforeach
-          </tbody>
-      </table>
+            </thead>
+            <tbody>
+                @foreach ($education as $school)
+                <tr>
+                  <td> {{ $school->school }} </td>
+                  <td> {{ $school->degree }} </td>
+                  <td> {{ $school->start }} </td>
+                  <td> {{ $school->end }} </td>
+                  <td>
+                      <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_education', [$school->id]) }}" role="button"></a>
+                      <a class="btn btn-danger glyphicon glyphicon-remove ajax-modal-dialog" href="{{ route('delete_education', [$school->id]) }}" role="button"></a> 
+                  </td>
 
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 
         <br/>
+
         <h3>Experiencia
           <a class="btn btn-info glyphicon glyphicon-briefcase pull-right" href="{{ route('add_experience', [$candidate->id]) }}" role="button"> Agregar</a>
         </h3>
@@ -82,5 +83,6 @@
               @endforeach
           </tbody>
       </table>
+      
 </div>
 @stop

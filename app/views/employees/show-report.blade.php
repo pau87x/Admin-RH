@@ -2,11 +2,13 @@
 
 @section('content')
 
-<h1 class="page-header">Personal</h1>
+<h2 class="page-header">Personal</h2>
+
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   Solo se muestra el personal con puesto asignado.
 </div>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
