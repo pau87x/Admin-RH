@@ -80,14 +80,14 @@
             @if (is_admin())
                <li><a href="{{ route('users') }}">Usuarios</a></li>
             @endif
-            <li><a href="{{ route('positions') }}">Vacantes</a></li>
-            <li><a href="{{ route('candidates') }}">Candidatos</a></li>
-            <li><a href="{{ route('employees') }}">Empleados</a></li>
-            <li><a href="{{ route('titles') }}">Puestos</a></li>
-            <li><a href="{{ route('centers') }}">Centros de Servicio</a></li>
-            <li><a href="{{ route('report') }}">Reporte de Empleados</a></li>
-            <li><a href="{{ route('list') }}">Lista de Asistencia</a></li>
-            <li><a href="{{ route('report_list') }}">Reporte de asistencia</a></li>
+            <li><a href="{{ route('positions') }}">     Vacantes    </a></li>
+            <li><a href="{{ route('candidates') }}">    Candidatos  </a></li>
+            <li><a href="{{ route('employees') }}">     Empleados   </a></li>
+            <li><a href="{{ route('titles') }}">        Puestos     </a></li>
+            <li><a href="{{ route('centers') }}">       Centros de Servicio </a></li>
+            <li><a href="{{ route('report') }}">        Reporte de Empleados</a></li>
+            <li><a href="{{ route('list') }}">          Lista de asistencia </a></li>
+            <li><a href="{{ route('report_list') }}">   Reporte de asistencia</a></li>
           </ul>
         </div>
         <div class="modal fade" id="modal-dialog" role="dialog" data-backdrop="static" data-keyboard="false"></div>

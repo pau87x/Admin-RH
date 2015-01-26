@@ -1,16 +1,19 @@
 <?php
 
-use AdminRH\Managers\RegisterManager;
 use AdminRH\Repositories\TitleRepo;
+use AdminRH\Repositories\EmployeeRepo;
 use AdminRH\Managers\TitleManager;
 
 class TitlesController extends BaseController {
 
     protected $titleRepo;
+    protected $employeeRepo;
 
-    public function __construct(TitleRepo $titleRepo)
+    public function __construct(TitleRepo $titleRepo,
+                                EmployeeRepo $employeeRepo)
     {
         $this->titleRepo = $titleRepo;
+        $this->employeeRepo = $employeeRepo;
     }
 
     public function show()
@@ -69,7 +72,13 @@ class TitlesController extends BaseController {
 
         $this->notFoundUnless($title);
 
-        $title->delete();
+        $used = $this->employeeRepo->titleIsUsed($id);
+
+        if($used>0){
+            Session::flash('alert-danger', 'El puesto está ligado con al menos un empleado');
+        }else{
+            $title->delete();
+        }
 
         return Redirect::route('titles');
 

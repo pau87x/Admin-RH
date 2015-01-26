@@ -81,6 +81,26 @@ class EmployeeRepo extends BaseRepo {
 
     }
 
+    public function centerIsUsed($center)
+    {
+        return Employee::with('changes')->whereHas('changes', function($q) use ($center){
+
+            if($center!='')
+                $q->where('center_id', '=', $center);
+
+        })->count();
+    }
+
+    public function titleIsUsed($title)
+    {
+        return Employee::with('changes')->whereHas('changes', function($q) use ($title){
+
+            if($title!='')
+                $q->where('title_id', '=', $title);
+
+        })->count();
+    }
+
 
     public function newEmployee()
     {

@@ -1,16 +1,19 @@
 <?php
 
-use AdminRH\Managers\RegisterManager;
 use AdminRH\Repositories\CenterRepo;
+use AdminRH\Repositories\EmployeeRepo;
 use AdminRH\Managers\CenterManager;
 
 class CentersController extends BaseController {
 
     protected $centerRepo;
+    protected $employeeRepo;
 
-    public function __construct(CenterRepo $centerRepo)
+    public function __construct(CenterRepo $centerRepo,
+                                EmployeeRepo $employeeRepo)
     {
-        $this->centerRepo = $centerRepo;
+        $this->centerRepo   = $centerRepo;
+        $this->employeeRepo = $employeeRepo;
     }
 
     public function show()
@@ -69,10 +72,15 @@ class CentersController extends BaseController {
 
         $this->notFoundUnless($center);
 
-        $center->delete();
+        $used = $this->employeeRepo->centerIsUsed($id);
 
+        if($used>0){
+            Session::flash('alert-danger', 'El centro está ligado con al menos un empleado');
+        }else{
+            $center->delete();
+        }
+        
         return Redirect::route('centers');
-
     }
 
 } 
