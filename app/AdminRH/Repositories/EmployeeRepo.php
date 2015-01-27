@@ -106,8 +106,12 @@ class EmployeeRepo extends BaseRepo {
                        ->orWhere('middle_name', 'LIKE', "%$q%")
                        ->orWhere('last_name', 'LIKE', "%$q%")
                        ->orWhere('maiden_name', 'LIKE', "%$q%")
-                       //->orWhereRaw("CONCAT('first_name', ' ', 'middle_name') LIKE '%$q%'")
-                     ->get();
+                       ->orWhereRaw("concat(first_name, ' ',middle_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(first_name, ' ',last_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(last_name, ' ',maiden_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(first_name, ' ',middle_name, ' ',last_name, ' ',maiden_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(last_name, ' ',maiden_name, ' ',first_name, ' ',middle_name) LIKE '%$q%'")
+                       ->get();
         return $employees;
     }
 
