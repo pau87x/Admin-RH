@@ -1,6 +1,6 @@
 <?php namespace AdminRH\Managers;
 
-class CandidateManager extends BaseManager {
+class CandidateEditManager extends BaseManager {
 
     public function getRules()
     {
@@ -22,7 +22,6 @@ class CandidateManager extends BaseManager {
 
             'position_id'   => 'required|exists:positions,id',
             'comment'       => 'max:1000',
-            'cv'            => 'mimes:pdf',
             'salary'        => 'required|numeric|min:0'
             
         ];
@@ -32,16 +31,6 @@ class CandidateManager extends BaseManager {
 
     public function prepareData($data)
     {
-
-        //dd($data);
-        if ( isset ($data['cv']) )
-        {
-             $cv   = $data['cv'];
-             $file = $data['cv']->getClientOriginalName();
-             $cv->move('cvs', $file);
-
-             $data['cv'] = $file;
-        }
 
         $birthdate = str_replace("/","-",$data['birthdate']);
         $data['birthdate'] = date("Y/m/d", strtotime($birthdate));

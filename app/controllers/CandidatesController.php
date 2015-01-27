@@ -8,6 +8,8 @@ use AdminRH\Repositories\CenterRepo;
 use AdminRH\Repositories\EducationRepo;
 use AdminRH\Repositories\ExperienceRepo;
 use AdminRH\Managers\CandidateManager;
+use AdminRH\Managers\CandidateEditManager;
+
 
 class CandidatesController extends BaseController {
 
@@ -95,7 +97,7 @@ class CandidatesController extends BaseController {
     {
         $candidate = $this->candidateRepo->find($id);
 
-        $manager  = new CandidateManager($candidate, Input::all());
+        $manager  = new CandidateEditManager($candidate, Input::all());
         $manager->save();
 
         return Redirect::route('candidates');

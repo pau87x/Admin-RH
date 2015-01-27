@@ -43,7 +43,9 @@
 
             {{ Field::text('salary') }}
 
-            {{ Field::file('cv') }}
+            @if($candidate->cv!='')
+                <a href="{{ url('/cvs/'.$candidate->cv) }}" class="btn btn-info btn-sm" target="_blank">Curriculum </a>
+            @endif
 
             {{ Field::textarea('comment') }}
 

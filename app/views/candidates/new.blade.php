@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <h1>Nuevo Candidato</h1>
 
-            {{ Form::open(['route' => 'save_new_candidate', 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
+            {{ Form::open(['route' => 'save_new_candidate', 'method' => 'POST',  'files' => true, 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('first_name') }}
 
