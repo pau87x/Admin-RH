@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('layout')
 
 @section('extra-css')
 <script src="{{ asset('excellentexport/excellentexport.min.js') }}"></script>

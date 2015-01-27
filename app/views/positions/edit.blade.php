@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('layout')
 
 @section('extra-css')
 <link href="{{ asset('bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet">
