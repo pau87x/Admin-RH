@@ -34,10 +34,17 @@ class EmployeesController extends BaseController {
 
     public function show()
     {
-        //$employees = $this->employeeRepo->getList();
         $employees = $this->employeeRepo->getListPaginate();
 
         return View::make('employees/show', compact('employees'));
+    }
+
+    public function searchEmployee()
+    {
+        $q = e(Input::get('q',''));
+        $employees = $this->employeeRepo->searchEmployee($q);
+
+        return View::make('employees/show-search', compact('employees'));
     }
 
     public function showEmployee($id)
@@ -46,6 +53,8 @@ class EmployeesController extends BaseController {
 
         return View::make('employees/show-employee', compact('employee'));
     }
+
+
 
     public function create()
     {

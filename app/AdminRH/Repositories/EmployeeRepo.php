@@ -16,7 +16,6 @@ class EmployeeRepo extends BaseRepo {
     public function getList()
     {
        return Employee::get();
-       //return Employee::with('changes.title')->get();
     }
 
     public function getListPaginate()
@@ -99,6 +98,17 @@ class EmployeeRepo extends BaseRepo {
                 $q->where('title_id', '=', $title);
 
         })->count();
+    }
+
+    public function searchEmployee($q)
+    {
+        $employees =  Employee::where('first_name', 'LIKE',  "%$q%")
+                       ->orWhere('middle_name', 'LIKE', "%$q%")
+                       ->orWhere('last_name', 'LIKE', "%$q%")
+                       ->orWhere('maiden_name', 'LIKE', "%$q%")
+                       //->orWhereRaw("CONCAT('first_name', ' ', 'middle_name') LIKE '%$q%'")
+                     ->get();
+        return $employees;
     }
 
 

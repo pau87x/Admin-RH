@@ -8,6 +8,12 @@
         <h4>Vacante</h4>
         {{ $candidate->position_name }}
 
+        @if($candidate->cv!='')
+            <a href="{{ url('/cvs/'.$candidate->cv) }}" class="btn btn-info btn-sm pull-right glyphicon glyphicon-list-alt" target="_blank"> Curriculum </a>
+        @else
+            <a class="btn btn-warning glyphicon glyphicon-list-alt pull-right" href="@{{ route('add_cv', [$candidate->id]) }}" role="button"> Agregar Curriculum</a>
+        @endif
+
         <h4>Contacto</h4>
         <strong>Celular</strong> {{ $candidate->cell_phone }}
         <strong>Correo Electrónico</strong> {{ $candidate->email }}
