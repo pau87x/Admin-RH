@@ -3,7 +3,9 @@
 @section('content')
 
 <h2 class="page-header">Historial
+   @if ($employee->status_id != 1)
   <a class="btn btn-success pull-right" href="{{ route('new_change', [$employee->id]) }}" role="button">Nuevo</a>
+  @endif
 </h2>
 
 <h3> {{ $employee->full_name }} </h3>

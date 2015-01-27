@@ -12,6 +12,12 @@
         <div class="col-md-6">
             <h1>Cambio puesto</h1>
 
+            @if ($employee->status_id == 1)
+            <div class="alert alert-danger" role="alert">
+              <span> Este empleado ya está dado de baja.</span>
+            </div>
+            @else
+
             {{ Form::open(['route' => array('save_new_change', $employee->id), 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
 
             {{ Field::text('date', null, ['id' => 'date', 'class'=>'datepicker','maxlength' => '10']) }}
@@ -29,6 +35,8 @@
             </p>
 
             {{ Form::close() }}
+
+            @endif
 
         </div>
     </div>

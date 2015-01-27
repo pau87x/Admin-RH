@@ -54,8 +54,6 @@ class EmployeesController extends BaseController {
         return View::make('employees/show-employee', compact('employee'));
     }
 
-
-
     public function create()
     {
         $genres  = \Lang::get('utils.genre');
@@ -129,7 +127,6 @@ class EmployeesController extends BaseController {
 
         return Redirect::route('employees');
     }
-
 
     public function filterReport()
     {

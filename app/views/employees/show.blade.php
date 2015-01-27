@@ -6,7 +6,6 @@
 
   <div class="col-sm-3 col-md-3 pull-right">
     {{ Form::open(['route' => 'search_employee', 'method' => 'GET', 'role' => 'search', 'novalidate']) }}
-    <!-- <form class="navbar-form" role="search" action="{{ route('search_employee')}}"> -->
      <div class="input-group">
          <input type="text" class="form-control" placeholder="Buscar" name="q">
          <div class="input-group-btn">
@@ -14,7 +13,6 @@
          </div>
      </div>
      {{ Form::close() }}
-    <!--</form> -->
   </div>
 
   <a class="btn btn-success" href="{{ route('new_employee') }}" role="button">Nuevo</a>
