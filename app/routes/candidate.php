@@ -6,6 +6,10 @@ Route::get('candidates/all', ['as' => 'all_candidates', 'uses' => 'CandidatesCon
 Route::get('candidate/register', ['as' => 'new_candidate', 'uses' => 'CandidatesController@create']);
 Route::post('candidate/register', ['as' => 'save_new_candidate', 'uses' => 'CandidatesController@register']);
 
+Route::get('candidate/add-cv/{id}', ['as' => 'add_cv', 'uses' => 'CandidatesController@addCurriculum']);
+Route::put('candidate/add-cv/{id}', ['as' => 'save_cv', 'uses' => 'CandidatesController@saveCurriculum']);
+
+
 Route::get('candidate/{id}', ['as' => 'show_candidate', 'uses' => 'CandidatesController@showCandidate']);
 
 Route::get('candidate/update/{id}', ['as' => 'edit_candidate', 'uses' => 'CandidatesController@edit']);
@@ -24,6 +28,8 @@ Route::post('positions/register', ['as' => 'save_new_position', 'uses' => 'Posit
 
 Route::get('positions/update/{id}', ['as' => 'edit_position', 'uses' => 'PositionsController@edit']);
 Route::put('positions/update/{id}', ['as' => 'update_position', 'uses' => 'PositionsController@update']);
+
+
 
 
 Route::get('candidate/education/{id}', ['as' => 'add_education', 'uses' => 'EducationController@create']);

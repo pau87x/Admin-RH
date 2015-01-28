@@ -9,6 +9,7 @@ use AdminRH\Repositories\EducationRepo;
 use AdminRH\Repositories\ExperienceRepo;
 use AdminRH\Managers\CandidateManager;
 use AdminRH\Managers\CandidateEditManager;
+use AdminRH\Managers\CandidateAddCVManager;
 
 
 class CandidatesController extends BaseController {
@@ -134,6 +135,26 @@ class CandidatesController extends BaseController {
         $position   = $candidate->position;
 
         return View::make('candidates/reclute', compact('candidate','genres','states','position'));
+    }
+
+    public function addCurriculum($id)
+    {
+        $candidate = $this->candidateRepo->find($id);
+
+        $this->notFoundUnless($candidate);
+
+        return View::make('candidates/add-curriculum', compact('candidate'));
+    }
+
+    public function saveCurriculum($id)
+    {
+        $candidate = $this->candidateRepo->find($id);
+
+        $manager  = new CandidateAddCVManager($candidate, Input::all());
+        $manager->save();
+
+       // return Response::json(array('name' => 'Steve', 'state' => 'CA'));
+        return Redirect::route('edit_candidate', $id);
     }
 
 
