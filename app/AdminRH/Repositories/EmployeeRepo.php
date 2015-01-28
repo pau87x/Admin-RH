@@ -109,7 +109,7 @@ class EmployeeRepo extends BaseRepo {
         })->count();
     }
 
-    public function searchEmployee($q)
+    public function searchEmployees($q)
     {
         $employees =  Employee::where('first_name', 'LIKE',  "%$q%")
                        ->orWhere('middle_name', 'LIKE', "%$q%")

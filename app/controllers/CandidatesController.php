@@ -50,10 +50,18 @@ class CandidatesController extends BaseController {
         return View::make('candidates/show', compact('candidates'));
     }
 
+    public function searchCandidates()
+    {
+        $q = e(Input::get('q',''));
+        $candidates = $this->candidateRepo->searchCandidates($q);
+
+        return View::make('candidates/show-search', compact('candidates'));
+    }
+
     public function showCandidate($id)
     {
-        $candidate = $this->candidateRepo->find($id);
-        $education = $this->educationRepo->getAll($id);
+        $candidate   = $this->candidateRepo->find($id);
+        $education   = $this->educationRepo->getAll($id);
         $experiences = $this->experienceRepo->getAll($id);
 
         return View::make('candidates/show-candidate', compact('candidate','education','experiences'));

@@ -22,6 +22,13 @@ class UserRepo extends BaseRepo {
        return User::orderBy('type')->paginate(10);
     }
 
+    public function searchUsers($q)
+    {
+        $users =  User::where('full_name', 'LIKE',  "%$q%")
+                       ->get();
+        return $users;
+    }
+
     public function newUser()
     {
         $employee = new User();

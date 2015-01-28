@@ -39,9 +39,7 @@
         <td>
           <div class="pull-right">
             <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_user', [$user->id]) }}" role="button"></a>
-            @if (is_admin())
             <a class="btn btn-danger glyphicon glyphicon-remove ajax-modal-dialog"  href="@{{ route('delete_user', [$user->id]) }}" role="button"></a> 
-            @endif
           </div>
         </td>
 
@@ -49,9 +47,5 @@
       @endforeach
     </tbody>
   </table>
-  <div class="text-center">
-      {{ $users->links() }}
-  </div>
-
 </div>
 @stop

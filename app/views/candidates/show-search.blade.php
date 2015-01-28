@@ -54,10 +54,6 @@
       @endforeach
     </tbody>
   </table>
-
-  <div class="text-center">
-      {{ $candidates->links() }}
-  </div>
   <div class="text-center">
         <a class="btn btn-primary text-center" href="{{ route('all_candidates') }}" >Ver todos</a>
         <a class="btn btn-success text-center" download="candidatos.xls" href="#" onclick="return ExcellentExport.excel(this, 'candidates-table', 'Candidatos');">Exportar a excel</a>

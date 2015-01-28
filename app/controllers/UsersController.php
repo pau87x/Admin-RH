@@ -51,6 +51,14 @@ class UsersController extends BaseController {
         return View::make('users/show', compact('users'));
     }
 
+    public function searchUsers()
+    {
+        $q = e(Input::get('q',''));
+        $users = $this->userRepo->searchUsers($q);
+
+        return View::make('users/show-search', compact('users'));
+    }
+
     public function edit($id)
     {
         $user = $this->userRepo->find($id);

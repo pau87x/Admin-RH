@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1>Actualizar Curriculum</h1>
+            <h1>Editar Candidato</h1>
 
             {{ Form::model($candidate, ['route' => array('update_candidate', $candidate->id), 'method' => 'PUT', 'files' => true, 'role' => 'form', 'novalidate']) }}
 
@@ -40,6 +40,8 @@
             <h3>Vacante</h3>
             
             {{ Field::select('position_id', $positions) }}
+
+            {{ Field::text('salary') }}
 
             <a class="btn btn-success glyphicon glyphicon-book ajax-modal-dialog" href="{{ route('add_cv', [$candidate->id]) }}" role="button">Agregar Curriculum</a>
 

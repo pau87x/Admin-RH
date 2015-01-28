@@ -39,10 +39,10 @@ class EmployeesController extends BaseController {
         return View::make('employees/show', compact('employees'));
     }
 
-    public function searchEmployee()
+    public function searchEmployees()
     {
         $q = e(Input::get('q',''));
-        $employees = $this->employeeRepo->searchEmployee($q);
+        $employees = $this->employeeRepo->searchEmployees($q);
 
         return View::make('employees/show-search', compact('employees'));
     }

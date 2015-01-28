@@ -33,6 +33,21 @@ class CandidateRepo extends BaseRepo {
 
     }
 
+    public function searchCandidates($q)
+    {
+        $candidates =  Candidate::where('first_name', 'LIKE',  "%$q%")
+                       ->orWhere('middle_name', 'LIKE', "%$q%")
+                       ->orWhere('last_name', 'LIKE', "%$q%")
+                       ->orWhere('maiden_name', 'LIKE', "%$q%")
+                       ->orWhereRaw("concat(first_name, ' ',middle_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(first_name, ' ',last_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(last_name, ' ',maiden_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(first_name, ' ',middle_name, ' ',last_name, ' ',maiden_name) LIKE '%$q%'")
+                       ->orWhereRaw("concat(last_name, ' ',maiden_name, ' ',first_name, ' ',middle_name) LIKE '%$q%'")
+                       ->get();
+        return $candidates;
+    }
+
     public function newCandidate()
     {
         $candidate = new Candidate();

@@ -1,19 +1,12 @@
 <?php
 
-Route::get('sign-up', ['as' => 'sign_up', 'uses' => 'UsersController@signUp']);
-Route::post('sign-up', ['as' => 'register', 'uses' => 'UsersController@register']);
-
 Route::get('account', ['as' => 'account', 'uses' => 'UsersController@account']);
 Route::put('account', ['as' => 'update_account', 'uses' => 'UsersController@updateAccount']);
-
-Route::get('user/update/{id}', ['as' => 'edit_user', 'uses' => 'UsersController@edit']);
-Route::put('user/update/{id}', ['as' => 'update_user', 'uses' => 'UsersController@update']);
-
 
 
 
 Route::get('employees', ['as' => 'employees', 'uses' => 'EmployeesController@show']);
-Route::get('searchEmployee', ['as' => 'search_employee', 'uses' => 'EmployeesController@searchEmployee']);
+Route::get('search-employee', ['as' => 'search_employee', 'uses' => 'EmployeesController@searchEmployees']);
 
 Route::get('employee/register', ['as' => 'new_employee', 'uses' => 'EmployeesController@create']);
 Route::post('employee/register', ['as' => 'save_new_employee', 'uses' => 'EmployeesController@register']);
