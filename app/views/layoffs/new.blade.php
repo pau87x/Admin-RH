@@ -11,6 +11,7 @@
         <div class="col-md-6">
             <h1>Dar Baja</h1>
 
+            @include('employees.header-employee-title')
 
             @if ($employee->status_id == 1)
             <div class="alert alert-danger" role="alert">
@@ -28,8 +29,6 @@
             </div>
 
             @else
-
-            {{ $employee->title }}
 
             {{ Form::open(['route' => array('save_new_layoff', $employee->id), 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
 

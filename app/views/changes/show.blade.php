@@ -8,7 +8,7 @@
   @endif
 </h2>
 
-<h3> {{ $employee->full_name }} </h3>
+@include('employees.header-employee-status')
 
 <div class="table-responsive">
   <table class="table table-striped">
