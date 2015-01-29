@@ -17,6 +17,8 @@ class AddCandidateIdToEducationTable extends Migration {
 
 			$table->integer('candidate_id')->unsigned()->after('end');
 
+			$table->foreign('candidate_id')->references('id')->on('candidates');
+
 		});
 	}
 
