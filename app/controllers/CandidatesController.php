@@ -81,7 +81,10 @@ class CandidatesController extends BaseController {
         $candidate = $this->candidateRepo->newCandidate();
         $manager  = new CandidateManager($candidate, Input::all());
         
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'El candidato se ha creado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear el candidato');
 
         return Redirect::route('candidates');
     }
@@ -107,7 +110,11 @@ class CandidatesController extends BaseController {
         $candidate = $this->candidateRepo->find($id);
 
         $manager  = new CandidateEditManager($candidate, Input::all());
-        $manager->save();
+        
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado los datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar los datos');
 
         return Redirect::route('candidates');
     }
@@ -124,7 +131,10 @@ class CandidatesController extends BaseController {
 
         $candidate = $this->candidateRepo->find($id);
 
-        $candidate->delete();
+        if($candidate->delete())
+            Session::flash('alert-success', 'Se han eliminado al candidato');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al eliminar al candidato');
 
         return Redirect::route('candidates');
     }

@@ -35,7 +35,11 @@ class PositionsController extends BaseController {
     {
         $position = $this->positionRepo->newPosition();
         $manager = new PositionManager($position, Input::all());
-        $manager->save();
+        
+        if($manager->save())
+            Session::flash('alert-success', 'La vacante se ha creado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear la vacante');
 
         return Redirect::route('positions');
     }
@@ -56,7 +60,10 @@ class PositionsController extends BaseController {
         $position = $this->positionRepo->find($id);
         $manager = new PositionManager($position, Input::all());
 
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado los datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar los datos');
 
         return Redirect::route('positions');
     }
@@ -77,7 +84,10 @@ class PositionsController extends BaseController {
 
         $this->notFoundUnless($position);
 
-        $position->delete();
+        if($position->delete())
+            Session::flash('alert-success', 'Se han eliminado la vacante');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al eliminar la vacante');
 
         return Redirect::route('positions');
 

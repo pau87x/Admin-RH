@@ -24,7 +24,8 @@
         <td>{{ $title->id }}</td>
         <td>{{ $title->name }}</td>
         @if (is_admin())
-        <td><a class="btn btn-success" href="{{ route('edit_title', [$title->id]) }}" role="button">Editar</a>
+        <td>
+          <a class="btn btn-success" href="{{ route('edit_title', [$title->id]) }}" role="button">Editar</a>
           <a class="btn btn-danger ajax-modal-dialog" href="{{ route('delete_title', [$title->id]) }}" role="button">Eliminar</a>
         </td>
         @endif

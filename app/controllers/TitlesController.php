@@ -32,7 +32,11 @@ class TitlesController extends BaseController {
     {
         $title = $this->titleRepo->newTitle();
         $manager = new TitleManager($title, Input::all());
-        $manager->save();
+
+        if($manager->save())
+            Session::flash('alert-success', 'El puesto se ha creado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear el puesto');
 
         return Redirect::route('titles');
     }
@@ -51,7 +55,10 @@ class TitlesController extends BaseController {
         $title = $this->titleRepo->find($id);
         $manager = new TitleManager($title, Input::all());
 
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado los datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar los datos');
 
         return Redirect::route('titles');
     }
@@ -77,7 +84,10 @@ class TitlesController extends BaseController {
         if($used>0){
             Session::flash('alert-danger', 'El puesto está ligado con al menos un empleado');
         }else{
-            $title->delete();
+            if($title->delete())
+                Session::flash('alert-success', 'Se han eliminado el puesto');
+            else
+                Session::flash('alert-danger', 'Ha ocurrido un error al eliminar el puesto');
         }
 
         return Redirect::route('titles');

@@ -32,7 +32,11 @@ class CentersController extends BaseController {
     {
         $center = $this->centerRepo->newCenter();
         $manager = new CenterManager($center, Input::all());
-        $manager->save();
+
+        if($manager->save())
+            Session::flash('alert-success', 'El centro se ha agregado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear el centro');
 
         return Redirect::route('centers');
     }
@@ -51,7 +55,10 @@ class CentersController extends BaseController {
         $center = $this->centerRepo->find($id);
         $manager = new CenterManager($center, Input::all());
 
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado los datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar los datos');
 
         return Redirect::route('centers');
     }
@@ -77,7 +84,10 @@ class CentersController extends BaseController {
         if($used>0){
             Session::flash('alert-danger', 'El centro está ligado con al menos un empleado');
         }else{
-            $center->delete();
+            if($center->delete())
+                Session::flash('alert-success', 'Se han eliminado el centro');
+            else
+                Session::flash('alert-danger', 'Ha ocurrido un error al eliminar el centro');
         }
         
         return Redirect::route('centers');

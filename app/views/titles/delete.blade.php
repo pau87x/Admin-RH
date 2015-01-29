@@ -20,9 +20,3 @@
     </div>
 </div>
 @endsection
-
-
-@section('extra-js')
-<script>
-</script>
-@endsection

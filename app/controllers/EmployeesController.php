@@ -67,7 +67,10 @@ class EmployeesController extends BaseController {
         $employee = $this->employeeRepo->newEmployee();
         $manager  = new EmployeeManager($employee, Input::all());
         
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'El empleado se ha agregado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear el empleado');
 
         return Redirect::route('employees');
     }
@@ -80,7 +83,11 @@ class EmployeesController extends BaseController {
 
         $position = $this->positionRepo->find($id);
         $position->current=0;
-        $position->save();
+
+        if($position->save())
+            Session::flash('alert-success', 'El empleado se ha creado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear el empleado');
 
 
         return Redirect::route('employees');
@@ -106,7 +113,10 @@ class EmployeesController extends BaseController {
         $employee = $this->employeeRepo->find($id);
         $manager  = new EmployeeManager($employee, Input::all());
 
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado los datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar los datos');
 
         return Redirect::route('employees');
     }
@@ -120,10 +130,12 @@ class EmployeesController extends BaseController {
 
     public function destroy($id)
     {
-
         $employee = $this->employeeRepo->find($id);
 
-        $employee->delete();
+        if($employee->delete())
+            Session::flash('alert-success', 'Se han eliminado al empleado');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al eliminar al empleado');
 
         return Redirect::route('employees');
     }

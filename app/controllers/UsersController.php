@@ -22,9 +22,12 @@ class UsersController extends BaseController {
     {
         $user = $this->userRepo->newUser();
         $manager = new RegisterManager($user, Input::all());
-        $manager->save();
 
-        Session::flash('alert-success', 'El usuario se ha agregado con éxito');
+        if($manager->save())
+            Session::flash('alert-success', 'El usuario se ha creado con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al crear el usuario');
+
         return Redirect::route('users');
     }
 
@@ -39,7 +42,10 @@ class UsersController extends BaseController {
         $user = Auth::user();
         $manager = new AccountManager($user, Input::all());
 
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado tus datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar tus datos');
 
         return Redirect::route('home');
     }
@@ -68,10 +74,12 @@ class UsersController extends BaseController {
     public function update($id)
     {
         $user = $this->userRepo->find($id);
-        //dd($user);
         $manager = new AccountManager($user, Input::all());
 
-        $manager->save();
+        if($manager->save())
+            Session::flash('alert-success', 'Se han modificado los datos con éxito');
+        else
+            Session::flash('alert-danger', 'Ha ocurrido un error al actualizar los datos');
 
         return Redirect::route('users');
     }
