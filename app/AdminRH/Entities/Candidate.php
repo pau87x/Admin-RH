@@ -25,10 +25,15 @@ class Candidate extends \Eloquent {
          return $this->belongsTo('AdminRH\Entities\Position');
     }
 
-    // public function attendances()
-    // {
-    //     return $this->hasMany('AdminRH\Entities\Attendance', 'employee_id');
-    // }
+    public function education()
+    {
+        return $this->hasMany('AdminRH\Entities\Education', 'candidate_id');
+    }
+
+    public function experiences()
+    {
+        return $this->hasMany('AdminRH\Entities\Experience', 'candidate_id');
+    }
 
     // public function getTitleAttribute()
     // {
