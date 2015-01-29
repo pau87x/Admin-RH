@@ -17,6 +17,9 @@ Route::get('candidate/{id}', ['as' => 'show_candidate', 'uses' => 'CandidatesCon
 Route::get('candidate/update/{id}', ['as' => 'edit_candidate', 'uses' => 'CandidatesController@edit']);
 Route::put('candidate/update/{id}', ['as' => 'update_candidate', 'uses' => 'CandidatesController@update']);
 
+Route::get('candidate/delete/{id}', ['as' => 'delete_candidate', 'uses' => 'CandidatesController@delete']);
+Route::delete('candidate/deleting/{id}', ['as' => 'destroy_candidate', 'uses' => 'CandidatesController@destroy']);
+
 Route::get('excel/candidates/', ['as' => 'excel_candidates', 'uses' => 'CandidatesController@toExcel']);
 
 

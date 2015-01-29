@@ -22,7 +22,7 @@ class CandidateManager extends BaseManager {
 
             'position_id'   => 'required|exists:positions,id',
             'comment'       => 'max:1000',
-            'cv'            => 'mimes:pdf',
+            'cv'            => 'required|mimes:pdf',
             'salary'        => 'required|numeric|min:0'
             
         ];

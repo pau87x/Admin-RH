@@ -131,6 +131,9 @@ class CandidatesController extends BaseController {
 
         $candidate = $this->candidateRepo->find($id);
 
+        $candidate->education()->delete();
+        $candidate->experiences()->delete();
+
         if($candidate->delete())
             Session::flash('alert-success', 'Se han eliminado al candidato');
         else

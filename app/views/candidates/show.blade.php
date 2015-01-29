@@ -46,7 +46,7 @@
             <a class="btn btn-default glyphicon glyphicon-eye-open" href="{{ route('show_candidate', [$candidate->id]) }}" role="button"></a>
             <a class="btn btn-success glyphicon glyphicon-edit" href="{{ route('edit_candidate', [$candidate->id]) }}" role="button"></a>
             <a class="btn btn-primary glyphicon glyphicon-ok" href="{{ route('reclute_candidate', [$candidate->id]) }}" role="button"></a>
-            <a class="btn btn-danger glyphicon glyphicon-remove" href="@{{ route('layoff', [$candidate->id]) }}" role="button"></a> 
+            <a class="btn btn-danger glyphicon glyphicon-remove ajax-modal-dialog" href="{{ route('delete_candidate', [$candidate->id]) }}" role="button"></a> 
           </div>
         </td>
 
