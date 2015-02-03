@@ -5,8 +5,8 @@ class EducationManager extends BaseManager {
     public function getRules()
     {
         $rules = [
-            'school'	=> 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
-            'degree' 	=> 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
+            'school'	=> 'required|alpha_plus',
+            'degree' 	=> 'required|alpha_plus',
             'start'    	=> 'required|date_format:"d/m/Y"',
             'end' 		=> 'required|date_format:"d/m/Y"',
             'candidate_id' => 'required|exists:candidates,id'

@@ -7,8 +7,8 @@ class LayoffManager extends BaseManager {
         $rules = [
         	'date' 		  => 'required|date_format:"d/m/Y"',
         	'employee_id' => 'required|exists:employees,id',
-            'reason'      => 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
-            'comments'    => 'regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
+            'reason'      => 'required|alpha_plus',
+            'comments'    => 'alpha_plus',
         ];
 
         return $rules;

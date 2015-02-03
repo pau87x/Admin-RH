@@ -5,7 +5,7 @@ class PositionManager extends BaseManager {
     public function getRules()
     {
         $rules = [
-            'name'			=> 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
+            'name'			=> 'required|alpha_plus',
             'description' 	=> 'max:1000',
             'job_type'    	=> 'required|in:full,partial,freelance,intern',
             'salary' 		=> 'required|numeric|min:0',

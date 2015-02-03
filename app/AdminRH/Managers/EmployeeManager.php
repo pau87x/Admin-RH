@@ -23,10 +23,10 @@ class EmployeeManager extends BaseManager {
             'curp'      => array('required', 'alpha_dash', 'regex:/^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$/'),
             'ss_number' => 'required|alpha_dash',
 
-            'street'    => 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
+            'street'    => 'required|alpha_plus',
             'no_ext'    => 'required|alpha_num',
             'no_int'    => 'alpha_dash',
-            'extra_address' => 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/',
+            'extra_address' => 'required|alpha_plus',
 
             'zip_code'  => 'required|numeric',
             'city'      => 'required',

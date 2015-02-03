@@ -5,7 +5,7 @@ class CenterManager extends BaseManager {
     public function getRules()
     {
         $rules = [
-            'name'    => 'required|regex:/^[a-zA-Z0-9][ A-Za-z0-9._-]*$/'         
+            'name'    => 'required|alpha_plus',     
         ];
 
         return $rules;
