@@ -90,6 +90,21 @@ return array(
 	    ),
 	    'curp' => array(
 	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    ),
+	    'company' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    ),
+	    'title' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    ),
+	    'school' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    ),
+	    'degree' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
+	    ),
+	    'name' => array(
+	        'regex' => 'El campo :attribute no tiene un formato válido.'
 	    )
 	),
 
