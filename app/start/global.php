@@ -84,6 +84,7 @@ App::down(function()
 
 require app_path().'/filters.php';
 
+
 if ( ! function_exists('is_admin'))
 {
     function is_admin()
@@ -91,3 +92,5 @@ if ( ! function_exists('is_admin'))
         return Auth::check() && Auth::user()->type == 'admin';
     }
 }
+
+require app_path().'/validators.php';

@@ -61,6 +61,8 @@ return array(
 	),
 	"unique"         => "El campo :attribute ya ha sido tomado.",
 	"url"            => "El formato de :attribute es invalido.",
+	"alpha_spaces"   => "The :attribute may only contain letters and spaces.",
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -107,6 +109,7 @@ return array(
 	        'regex' => 'El campo :attribute no tiene un formato válido.'
 	    )
 	),
+
 
 	/*
 	|--------------------------------------------------------------------------
