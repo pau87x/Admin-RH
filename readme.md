@@ -36,4 +36,7 @@ php artisan db:seed
 
 [Link](http://104.236.208.94/)
 
+Email: admin@admin.com
+Password: admin
+
 
