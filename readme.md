@@ -1,6 +1,6 @@
 ## Admin-RH
 
-This is a Small system for Human Resource Management.
+This is a small system for Human Resources Management.
 
 ## Requirements
 
@@ -15,13 +15,13 @@ This is a Small system for Human Resource Management.
 ```
 git clone https://github.com/pau87x/Admin-RH.git
 ```
-### composer install
+### Execute  `composer install`
 
 ### Configure the database connection information
 
 Edit the `config/database.php` file to suit your needs.
 
-### Import the script adminrh_cities.php 
+### Import the script adminrh_cities.sql 
 
 This script is used for states from México, you can change.
 
