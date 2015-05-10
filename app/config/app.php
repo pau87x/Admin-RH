@@ -123,8 +123,8 @@ return array(
 
         // Vendor
         //'Way\Generators\GeneratorsServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider',
-        'Maatwebsite\Excel\ExcelServiceProvider',
+        //'Barryvdh\Debugbar\ServiceProvider',
+        //'Maatwebsite\Excel\ExcelServiceProvider',
 
         // Custom
         'AdminRH\Components\FieldServiceProvider'
